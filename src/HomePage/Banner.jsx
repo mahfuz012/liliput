@@ -1,0 +1,88 @@
+import React from "react";
+import pic1 from "@/assets/istockphoto-1500774201-612x612.jpg";
+import pic2 from "@/assets/istockphoto-1392301370-612x612.jpg";
+import pic3 from "@/assets/istockphoto-1415537875-612x612.jpg";
+import Image from "next/image";
+import { GrCurrency, GrUserManager } from "react-icons/gr";
+import { FaHandHoldingDollar } from "react-icons/fa6";
+import { SlBadge } from "react-icons/sl";
+
+const Banner = () => {
+  return (
+    <>
+      <div className="hero bg-gradient-to-t from-cyan-100 to-slate-100 py-10">
+        <div className="hero-content flex-col justify-around lg:flex-row-reverse">
+          <div className="flex flex-col lg:flex-row gap-2">
+            <div>
+              <Image
+                className="max-w-sm rounded-lg shadow-2xl"
+                height={460}
+                src={pic1}
+                alt=""
+              ></Image>
+            </div>
+            <div className="flex flex-row gap-2 lg:flex-col">
+              <Image
+                className="max-w-sm hidden lg:block rounded-lg shadow-2xl"
+                width={350}
+                src={pic2}
+                alt=""
+              ></Image>
+              <Image
+                className="max-w-sm hidden lg:block rounded-lg shadow-2xl"
+                width={350}
+                src={pic3}
+                alt=""
+              ></Image>
+            </div>
+          </div>
+          <div className="space-y-6 mr-10">
+            <h1 className="text-5xl font-bold">
+              Find & Hire <br /> Expert Freelancer
+            </h1>
+            <p className="text-lg">
+              Work with the best freelance talent from around the world on our
+              secure, flexible and cost-effective platform.
+            </p>
+            <div>
+              <input
+                type="text"
+                placeholder="Search Experts"
+                className="input input-bordered w-full max-w-2xl"
+              />
+            </div>
+            <button className="btn bg-cyan-600 text-white">Search</button>
+          </div>
+        </div>
+      </div>
+      <div className="bg-slate-50 flex flex-col lg:flex-row justify-around">
+        <div className="py-10 flex items-center gap-4">
+          <GrUserManager className="w-8 h-8" />
+          <p>
+            30000 <br /> Employers Worldwide
+          </p>
+        </div>
+        <div className="py-10 flex items-center gap-4">
+          <FaHandHoldingDollar className="w-8 h-8" />
+          <p>
+            5,00,000 <br /> Paid Invoices
+          </p>
+        </div>
+        <div className="py-10 flex items-center gap-4">
+          <GrCurrency className="w-8 h-8" />
+          <p>
+            $20 Million <br /> Paid to Freelancers
+          </p>
+        </div>
+        <div className="px-8 py-10 shadow-xl flex items-center gap-4 bg-slate-100 border-gray-300 border-2">
+          <SlBadge className="w-8 h-8" />
+          <p>
+            90% <br /> Customer Satisfaction Rate
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Banner;

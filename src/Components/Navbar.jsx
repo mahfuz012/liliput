@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import logo from "../../public/icon.png";
+import logo from "../assets/icon.png";
 
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-gradient-to-r from-slate-100 to-green-200 py-4">
+      <div className="navbar sticky top-0 z-10 bg-gradient-to-r from-slate-100 to-cyan-100 py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
