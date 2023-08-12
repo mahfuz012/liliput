@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logo from "../assets/icon.png";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -29,22 +30,22 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Find Jobs</a>
+                <Link href="/findjobs">Find Jobs</Link>
               </li>
               <li>
-                <a>Freelancer</a>
+                <Link href="/freelancer">Freelancer</Link>
               </li>
               <li>
-                <a>About</a>
+                <Link href="/about">About</Link>
               </li>
               <li>
-                <a>Solutions</a>
+                <Link href="/solutions">Solutions</Link>
               </li>
             </ul>
           </div>
           <div className="flex gap-20">
             <div>
-              <a className="btn btn-ghost normal-case text-xl">
+              <Link href="/" className="btn btn-ghost normal-case text-xl">
                 <Image
                   width={30}
                   src={logo}
@@ -52,21 +53,21 @@ const Navbar = () => {
                   alt="thumbnail"
                 ></Image>{" "}
                 Free Flow
-              </a>
+              </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal text-[16px] px-1">
                 <li className="border-r-2 border-black">
-                  <a>Find Jobs</a>
+                  <Link href="/findjobs">Find Jobs</Link>
                 </li>
                 <li className="border-r-2 border-black">
-                  <a>Freelancer</a>
+                  <Link href="/freelancer">Freelancer</Link>
                 </li>
                 <li className="border-r-2 border-black">
-                  <a>About</a>
+                  <Link href="/about">About</Link>
                 </li>
                 <li className="border-r-2 border-black">
-                  <a>Solutions</a>
+                  <Link href="/solutions">Solutions</Link>
                 </li>
               </ul>
             </div>

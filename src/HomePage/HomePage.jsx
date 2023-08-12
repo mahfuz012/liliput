@@ -7,10 +7,8 @@ import Criteria from "./Criteria";
 const HomePage = () => {
   return (
     <>
-      <Navbar />
       <Banner />
       <Criteria />
-      <Footer />
     </>
   );
 };
