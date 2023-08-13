@@ -59,18 +59,20 @@ const Criteria = () => {
         {criterias.map(({ id, title, total }) => (
           <div
             key={id}
-            className="py-10 text-center border-gray-100 border-2 shadow-xl"
+            className="py-10 text-center border-gray-100 border-2 shadow-md hover:shadow-xl"
           >
             <p>{title}</p>
             <p>{total}</p>
-            <p className="cursor-pointer mt-2 flex justify-center items-center gap-1 text-blue-600">
+            <p className="cursor-pointer mt-2 flex justify-center items-center gap-1 text-blue-600 font-semibold hover:text-blue-900">
               Find <FaArrowRight />
             </p>
           </div>
         ))}
       </div>
       <div className="text-center mt-10">
-        <button className="btn bg-cyan-600 text-white">See More</button>
+        <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white">
+          See More
+        </button>
       </div>
     </div>
   );

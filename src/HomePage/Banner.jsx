@@ -51,11 +51,13 @@ const Banner = () => {
                 className="input input-bordered w-full max-w-2xl"
               />
             </div>
-            <button className="btn bg-cyan-600 text-white">Search</button>
+            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white">
+              Search
+            </button>
           </div>
         </div>
       </div>
-      <div className="bg-slate-50 flex flex-col lg:flex-row justify-around">
+      <div className="bg-slate-50 px-10 grid grid-cols-2 lg:grid-cols-4 ">
         <div className="py-10 flex items-center gap-4">
           <GrUserManager className="w-8 h-8" />
           <p>
@@ -74,7 +76,7 @@ const Banner = () => {
             $20 Million <br /> Paid to Freelancers
           </p>
         </div>
-        <div className="px-8 py-10 shadow-xl flex items-center gap-4 bg-slate-100 border-gray-300 border-2">
+        <div className="px-8 py-10 drop-shadow-xl flex items-center gap-4 bg-slate-100 border-gray-200 border-2 border-t-0">
           <SlBadge className="w-8 h-8" />
           <p>
             90% <br /> Customer Satisfaction Rate

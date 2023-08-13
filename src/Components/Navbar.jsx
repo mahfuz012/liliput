@@ -6,7 +6,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar sticky top-0 z-10 bg-gradient-to-r from-slate-100 to-cyan-100 py-3">
+      <div className="navbar sticky top-0 z-10 bg-gradient-to-r drop-shadow from-slate-100 to-cyan-100 py-3">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,7 +51,10 @@ const Navbar = () => {
           </div>
           <div className="flex gap-20">
             <div>
-              <Link href="/" className="btn btn-ghost normal-case text-xl">
+              <Link
+                href="/"
+                className="btn btn-ghost normal-case hover:bg-transparent text-xl"
+              >
                 <Image
                   width={30}
                   src={logo}
@@ -80,7 +83,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          <button className="btn bg-cyan-600 text-white">Post Jobs</button>
+          <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white">
+            Post Jobs
+          </button>
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px]">
               <li className="border-r-2 px-2 border-black">
