@@ -6,7 +6,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar sticky top-0 z-10 bg-gradient-to-r from-slate-100 to-cyan-100 py-4">
+      <div className="navbar sticky top-0 z-10 bg-gradient-to-r from-slate-100 to-cyan-100 py-3">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,6 +40,12 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/solutions">Solutions</Link>
+              </li>
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+              <li>
+                <Link href="/signup">SignUp</Link>
               </li>
             </ul>
           </div>
@@ -75,13 +81,13 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <button className="btn bg-cyan-600 text-white">Post Jobs</button>
-          <div>
+          <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px]">
               <li className="border-r-2 px-2 border-black">
-                <a>Signup</a>
+                <Link href="/signup">Signup</Link>
               </li>
               <li className="pr-2">
-                <a>login</a>
+                <Link href="/login">login</Link>
               </li>
             </ul>
           </div>

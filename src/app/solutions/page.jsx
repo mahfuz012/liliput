@@ -1,4 +1,7 @@
 import React from "react";
+export const metadata = {
+  title: "Solutions | Free Flow",
+};
 
 const SolutionsPage = () => {
   return (

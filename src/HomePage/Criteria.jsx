@@ -49,13 +49,18 @@ const Criteria = () => {
     },
   ];
   return (
-    <div className="my-10">
-      <div className="text-center mx-auto mt-14 mb-5">
-        <h1 className="text-4xl pb-5 font-bold uppercase">Criteria</h1>
+    <div className="my-20">
+      <div className="text-center border-b-2 border-cyan-600 w-1/4 mx-auto mt-14 mb-10">
+        <h1 className="text-4xl pb-5 font-bold uppercase">
+          Find Top Freelancers
+        </h1>
       </div>
-      <div className="container mx-auto px-10 grid gap-10 grid-cols-1 lg:grid-cols-3">
+      <div className="container mx-auto px-10 grid gap-5 grid-cols-1 lg:grid-cols-3">
         {criterias.map(({ id, title, total }) => (
-          <div key={id} className="py-10 text-center border-black border-2">
+          <div
+            key={id}
+            className="py-10 text-center border-gray-100 border-2 shadow-xl"
+          >
             <p>{title}</p>
             <p>{total}</p>
             <p className="cursor-pointer mt-2 flex justify-center items-center gap-1 text-blue-600">
@@ -64,7 +69,7 @@ const Criteria = () => {
           </div>
         ))}
       </div>
-      <div className="text-center my-10">
+      <div className="text-center mt-10">
         <button className="btn bg-cyan-600 text-white">See More</button>
       </div>
     </div>

@@ -1,4 +1,7 @@
 import React from "react";
+export const metadata = {
+  title: "Find Job | Free Flow",
+};
 
 const FindjobsPage = () => {
   return (
