@@ -1,3 +1,4 @@
+import TitleSection from "@/Components/TitleSection";
 import React from "react";
 export const metadata = {
   title: "Solutions | Free Flow",
@@ -6,9 +7,7 @@ export const metadata = {
 const SolutionsPage = () => {
   return (
     <div>
-      <div className="text-center mx-auto mt-14 mb-5">
-        <h1 className="text-4xl pb-5 font-bold uppercase">Meet With Solutions</h1>
-      </div>
+      <TitleSection title="meet with solution"/>
     </div>
   );
 };

@@ -1,13 +1,10 @@
+import TitleSection from "@/Components/TitleSection";
 import React from "react";
 
 const Works = () => {
   return (
     <div className="my-20">
-      <div className="text-center border-b-2 border-cyan-600 w-1/4 mx-auto mt-14 mb-10">
-        <h1 className="text-4xl pb-5 font-bold uppercase">
-          Get Work Done on Free flow
-        </h1>
-      </div>
+      <TitleSection title="get work done on free flow" />
       <div className="flex flex-col md:flex-row justify-center gap-8 py-10">
         <div className="text-center flex flex-col items-center">
           <div className="border-2 border-gray-100 rounded-full shadow-lg p-4 mb-4">
