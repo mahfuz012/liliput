@@ -10,12 +10,12 @@ import { SlBadge } from "react-icons/sl";
 const Banner = () => {
   return (
     <>
-      <div className="hero bg-gradient-to-t from-cyan-100 to-slate-100 py-10">
+      <div className="hero bg-gradient-to-t from-cyan-200 to-slate-100 py-10">
         <div className="hero-content flex-col justify-around lg:flex-row-reverse">
           <div className="flex flex-col lg:flex-row gap-2">
             <div>
               <Image
-                className="max-w-sm rounded-lg shadow-2xl"
+                className="max-w-sm rounded-l-md shadow-xl"
                 height={460}
                 src={pic1}
                 alt=""
@@ -23,13 +23,13 @@ const Banner = () => {
             </div>
             <div className="flex flex-row gap-2 lg:flex-col">
               <Image
-                className="max-w-sm hidden lg:block rounded-lg shadow-2xl"
+                className="max-w-sm hidden lg:block rounded-tr-md"
                 width={350}
                 src={pic2}
                 alt=""
               ></Image>
               <Image
-                className="max-w-sm hidden lg:block rounded-lg shadow-2xl"
+                className="max-w-sm hidden lg:block rounded-br-md shadow-xl"
                 width={350}
                 src={pic3}
                 alt=""
@@ -37,9 +37,11 @@ const Banner = () => {
             </div>
           </div>
           <div className="space-y-6 mr-10">
-            <h1 className="text-5xl font-bold">
-              Find & Hire <br /> Expert Freelancer
-            </h1>
+            <div class="text-5xl font-extrabold">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-700">
+                Find & Hire <br /> Expert Freelancer
+              </span>
+            </div>
             <p className="text-lg">
               Work with the best freelance talent from around the world on our
               secure, flexible and cost-effective platform.
@@ -48,14 +50,16 @@ const Banner = () => {
               <input
                 type="text"
                 placeholder="Search Experts"
-                className="input input-bordered w-full max-w-2xl"
+                className="input w-full max-w-2xl"
               />
             </div>
-            <button className="btn bg-cyan-600 text-white">Search</button>
+            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white">
+              Search
+            </button>
           </div>
         </div>
       </div>
-      <div className="bg-slate-50 flex flex-col lg:flex-row justify-around">
+      <div className="bg-slate-50 px-10 grid grid-cols-2 lg:grid-cols-4 ">
         <div className="py-10 flex items-center gap-4">
           <GrUserManager className="w-8 h-8" />
           <p>
@@ -74,7 +78,7 @@ const Banner = () => {
             $20 Million <br /> Paid to Freelancers
           </p>
         </div>
-        <div className="px-8 py-10 shadow-xl flex items-center gap-4 bg-slate-100 border-gray-300 border-2">
+        <div className="px-8 py-10 drop-shadow-xl flex items-center gap-4 bg-slate-100 border-gray-200 border-2 border-t-0">
           <SlBadge className="w-8 h-8" />
           <p>
             90% <br /> Customer Satisfaction Rate
