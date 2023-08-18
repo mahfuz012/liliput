@@ -1,16 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+      domains: ['lh3.googleusercontent.com', 'encrypted-tbn0.gstatic.com'],
+  },
+};
 
-    images: {
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'lh3.googleusercontent.com',
-            port: '',
-            pathname: '/a/AAcHTtfORPONjqnIychodTX8OO2lOpDRpu-soTGb5HB8Mi35S0A=s96-c',
-          },
-        ],
-      },
+module.exports = nextConfig;
+
      
       
       
@@ -19,6 +15,5 @@ const nextConfig = {
       
 
 
-}
 
 module.exports = nextConfig

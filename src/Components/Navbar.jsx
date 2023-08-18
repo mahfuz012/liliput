@@ -67,7 +67,7 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
                   src={logo}
                   height={30}
                   alt="thumbnail"
-                ></Image>{" "}
+                />
                 Free Flow
               </Link>
             </div>
@@ -104,7 +104,7 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
                { userProfile? <>
                 
           <li  data-tip={userProfile?.displayName} className="tooltip  tooltip-bottom tooltip-success">
-        <Image width={200} height={200} alt="" className='w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 ' src={userProfile?.photoURL} /></li>
+        <Image width={200} height={200} alt="" className='w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 ' src={userProfile?.photoURL || ""} /></li>
 
                 
                 
