@@ -1,9 +1,13 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useContext } from "react";
 import logo from "../assets/icon.png";
 import Link from "next/link";
+import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
 
 const Navbar = () => {
+  const { userProfile, logoutProfile } = useContext(AuthContextPro);
+
   return (
     <>
       <div className="navbar sticky top-0 z-10 bg-gradient-to-r drop-shadow from-slate-100 to-cyan-100 py-3 px-2">
@@ -25,6 +29,7 @@ const Navbar = () => {
                 />
               </svg>
             </label>
+
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
@@ -45,7 +50,7 @@ const Navbar = () => {
                 <Link href="/login">Login</Link>
               </li>
               <li>
-                <Link href="/signup">SignUp</Link>
+                <Link href="/register">SignUp</Link>
               </li>
             </ul>
           </div>
@@ -55,12 +60,7 @@ const Navbar = () => {
                 href="/"
                 className="btn btn-ghost normal-case hover:bg-transparent text-xl"
               >
-                <Image
-                  width={30}
-                  src={logo}
-                  height={30}
-                  alt="thumbnail"
-                ></Image>{" "}
+                <Image width={30} src={logo} height={30} alt="thumbnail" />
                 Free Flow
               </Link>
             </div>
@@ -88,12 +88,38 @@ const Navbar = () => {
           </button>
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
-              <li className="border-r-2 px-2 border-black">
-                <Link href="/signup">Signup</Link>
-              </li>
-              <li className="pr-2">
-                <Link href="/login">Login</Link>
-              </li>
+              {userProfile ? (
+                <>
+                  <li
+                    data-tip={userProfile?.displayName}
+                    className="tooltip  tooltip-bottom tooltip-success"
+                  >
+                    <Image
+                      width={200}
+                      height={200}
+                      alt=""
+                      className="w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 "
+                      src={userProfile?.photoURL || ""}
+                    />
+                  </li>
+
+                  <li
+                    onClick={logoutProfile}
+                    className="btn bg-red-400 text-white "
+                  >
+                    Logout
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="border-r-2 px-2 border-black">
+                    <Link href={"/register"}>Signup</Link>
+                  </li>
+                  <li className="pr-2">
+                    <Link href={"/login"}>Login</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
