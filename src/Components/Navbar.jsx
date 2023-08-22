@@ -89,27 +89,48 @@ const Navbar = () => {
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
               {userProfile ? (
-                <>
-                  <li
-                    data-tip={userProfile?.displayName}
-                    className="tooltip  tooltip-bottom tooltip-success"
+                <div className="dropdown-end dropdown">
+                  <label
+                    tabIndex={0}
+                    className="btn-ghost btn-circle avatar btn"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      alt=""
-                      className="w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 "
-                      src={userProfile?.photoURL || ""}
-                    />
-                  </li>
-
-                  <li
-                    onClick={logoutProfile}
-                    className="btn bg-red-400 text-white "
+                    <div className="w-12 border-purple-700 border-2 rounded-full">
+                      <Image
+                        title={userProfile?.displayName}
+                        width={200}
+                        height={200}
+                        alt=""
+                        src={userProfile?.photoURL || ""}
+                      />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
                   >
-                    Logout
-                  </li>
-                </>
+                    <li className="mb-2 mt-1 text-center font-semibold">
+                      {userProfile?.displayName}
+                    </li>
+                    <div className="divider my-0"></div>
+                    <li className="mb-2">
+                      <Link
+                        href="/dashboard"
+                        className="text-lg"
+                        activeClassName="text-blue-500"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li className="">
+                      <button
+                        onClick={logoutProfile}
+                        className="btn bg-red-500  content-center text-white"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               ) : (
                 <>
                   <li className="border-r-2 px-2 border-black">
