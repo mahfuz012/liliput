@@ -1,13 +1,12 @@
-"use client"
+"use client";
 import Image from "next/image";
-import  { useContext } from "react";
+import { useContext } from "react";
 import logo from "../assets/icon.png";
 import Link from "next/link";
 import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
 
 const Navbar = () => {
-const {userProfile,logoutProfile} = useContext(AuthContextPro)
-
+  const { userProfile, logoutProfile } = useContext(AuthContextPro);
 
   return (
     <>
@@ -54,7 +53,6 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
                 <Link href="/register">SignUp</Link>
               </li>
             </ul>
-            
           </div>
           <div className="flex gap-20">
             <div>
@@ -62,17 +60,11 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
                 href="/"
                 className="btn btn-ghost normal-case hover:bg-transparent text-xl"
               >
-                <Image
-                  width={30}
-                  src={logo}
-                  height={30}
-                  alt="thumbnail"
-                />
+                <Image width={30} src={logo} height={30} alt="thumbnail" />
                 Free Flow
               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-
               <ul className="menu menu-horizontal text-[16px] font-medium px-1">
                 <li className="border-x-2 border-black">
                   <Link href="/findjobs">Find Jobs</Link>
@@ -86,8 +78,6 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
                 <li className="border-r-2 border-black">
                   <Link href="/solutions">Solutions</Link>
                 </li>
-
-
               </ul>
             </div>
           </div>
@@ -98,34 +88,38 @@ const {userProfile,logoutProfile} = useContext(AuthContextPro)
           </button>
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
+              {userProfile ? (
+                <>
+                  <li
+                    data-tip={userProfile?.displayName}
+                    className="tooltip  tooltip-bottom tooltip-success"
+                  >
+                    <Image
+                      width={200}
+                      height={200}
+                      alt=""
+                      className="w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 "
+                      src={userProfile?.photoURL || ""}
+                    />
+                  </li>
 
-
-            
-               { userProfile? <>
-                
-          <li  data-tip={userProfile?.displayName} className="tooltip  tooltip-bottom tooltip-success">
-        <Image width={200} height={200} alt="" className='w-12 h-12  rounded-full mx-2 border-purple-700 border-2 p-1 ' src={userProfile?.photoURL || ""} /></li>
-
-                
-                
-                
-                <li onClick={logoutProfile} className="btn bg-red-400 text-white ">Logout</li>
-
+                  <li
+                    onClick={logoutProfile}
+                    className="btn bg-red-400 text-white "
+                  >
+                    Logout
+                  </li>
                 </>
-:<>
-              
-              <li className="border-r-2 px-2 border-black">
-                <Link href={"/register"}>Signup</Link>
-              </li>
-              <li className="pr-2">
-                <Link href={"/login"}>Login</Link>
-              </li>
-
-              </>
-               }
-
-
-
+              ) : (
+                <>
+                  <li className="border-r-2 px-2 border-black">
+                    <Link href={"/register"}>Signup</Link>
+                  </li>
+                  <li className="pr-2">
+                    <Link href={"/login"}>Login</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
