@@ -1,13 +1,15 @@
+import TitleSection from '@/Components/TitleSection';
 import React from 'react';
 
 const TrustedBy = () => {
     return (
-        <div className="mx-auto px-2">
-        <h1 className="text-4xl mb-4 font-medium">
-          Trusted by leading brands and startups
-        </h1>
-        <div className=" gap-6 md:flex justify-between items-center">
-          <div className="bg-[#FFFFFF] shadow-xl shadow-slate-400 card card-compact mt-4 sm:h-[700px] lg:h-[500px] w-full rounded-lg p-5 font-medium">
+        <div className="mx-auto max-w-[1600px] mb-12 px-4 md:px-14">
+       
+       
+          <TitleSection title="Trusted by leading brands " />
+       
+        <div className=" mt-6 gap-6 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 justify-between items-center">
+          <div className="bg-[#FFFFFF] shadow-md hover:shadow-xl hover:shadow-slate-400 shadow-slate-400 card card-compact  border-gray-300 mt-4 sm:h-[500px] lg:h-[490px]  w-full rounded-lg p-5 font-medium">
             <h1 className="my-3 ml-5 text-lg">Nasdaq</h1>
             <h1 className="my-3  text-lg">
               “Flow enables us to differentiate ourselves from our competitors and
@@ -25,7 +27,7 @@ const TrustedBy = () => {
               of impressions generated per client per IPO
             </p>
           </div>
-          <div className="bg-[#FFFFFF] shadow-xl shadow-slate-400 card card-compact mt-4 sm:h-[700px] lg:h-[500px] w-full rounded-lg p-5  font-medium">
+          <div className="bg-[#D0FAFE] shadow-md hover:shadow-xl hover:shadow-slate-400 shadow-slate-400 card card-compact  border-gray-300 mt-4 sm:h-[500px] lg:h-[490px]  w-full rounded-lg p-5 font-medium">
             <h1 className="my-3 ml-5 text-lg">Microsoft</h1>
             <h1 className="my-3  text-lg">
               “One of the advantages of utilizing freelancers is finding talent
@@ -43,7 +45,7 @@ const TrustedBy = () => {
             projects completed
             </p>
           </div>
-          <div className="bg-[#FFFFFF] shadow-xl shadow-slate-400 card card-compact mt-4 sm:h-[700px] lg:h-[500px] w-full rounded-lg p-5  font-medium">
+          <div className="bg-[#FFFFFF] shadow-md hover:shadow-xl hover:shadow-slate-400 shadow-slate-400 card card-compact  border-gray-300 mt-4 sm:h-[500px] lg:h-[490px]  w-full rounded-lg p-5 font-medium">
             <h1 className="my-3 ml-5 text-lg">Google</h1>
             <h1 className="my-3   text-lg">
               “Clients love Flow.
