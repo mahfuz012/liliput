@@ -46,12 +46,25 @@ const Navbar = () => {
               <li>
                 <Link href="/solutions">Solutions</Link>
               </li>
-              <li>
-                <Link href="/login">Login</Link>
-              </li>
-              <li>
-                <Link href="/register">SignUp</Link>
-              </li>
+              {userProfile ? (
+                <>
+                  <li>
+                    <Link href="/dashboard">Profile</Link>
+                  </li>
+                  <li>
+                    <a onClick={logoutProfile}>Logout</a>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link href="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link href="/register">SignUp</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div className="flex gap-20">

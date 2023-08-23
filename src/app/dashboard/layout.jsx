@@ -4,6 +4,11 @@ import React from "react";
 import Link from "next/link";
 
 const DashboardLayout = ({ children }) => {
+  // TO DO
+  const isAdmin = true;
+  const isSeller = false;
+  const isBuyer = false;
+
   return (
     <>
       <div className="drawer lg:drawer-open">
@@ -31,14 +36,45 @@ const DashboardLayout = ({ children }) => {
             <li>
               <a>Overview</a>
             </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <a>Manage Users</a>
+                </li>
+                <li>
+                  <a>Manage Jobs</a>
+                </li>
+                <li>
+                  <a>Manage Gigs</a>
+                </li>
+              </>
+            ) : isSeller ? (
+              <>
+                <li>
+                  <a>My Gigs</a>
+                </li>
+                <li>
+                  <a>My Clients</a>
+                </li>
+                <li>
+                  <a>Invoices</a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <a>My Jobs</a>
+                </li>
+                <li>
+                  <a>Selected Gigs</a>
+                </li>
+                <li>
+                  <a>Payments</a>
+                </li>
+              </>
+            )}
             <li>
-              <a>Products</a>
-            </li>
-            <li>
-              <a>Clients</a>
-            </li>
-            <li>
-              <a>Invoices</a>
+              <a>My Profile</a>
             </li>
           </ul>
         </div>
