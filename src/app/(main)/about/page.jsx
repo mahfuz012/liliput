@@ -1,4 +1,3 @@
-import TitleSection from "@/Components/TitleSection";
 import React from "react";
 import AboutHome from "./AboutHome";
 export const metadata = {
