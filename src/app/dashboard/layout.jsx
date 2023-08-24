@@ -5,9 +5,8 @@ import Link from "next/link";
 
 const DashboardLayout = ({ children }) => {
   // TO DO
-  const isAdmin = true;
+  const isAdmin = false;
   const isSeller = false;
-  const isBuyer = false;
 
   return (
     <>
