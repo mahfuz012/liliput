@@ -53,7 +53,7 @@ const ValuesPage = () => {
               <h2 className="mb-2 lg:text-xl font-semibold">Accountability</h2>
               <p>
                 Encouraging ownership of actions and interactions to ensure
-                harmony on Guru.
+                harmony on Free Flow.
               </p>
             </div>
             <div className="border-2 border-gray-100 rounded-full drop-shadow-sm p-4 my-4">
