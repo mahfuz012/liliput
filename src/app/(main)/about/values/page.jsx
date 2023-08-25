@@ -2,7 +2,7 @@ import React from "react";
 import pic from "@/assets/value_center@2x.png";
 import Image from "next/image";
 import { FaRegHandshake } from "react-icons/fa";
-import { FaHandHoldingHand, FaHandsPraying } from "react-icons/fa6";
+import { FaHandHoldingHand, FaHandsPraying, FaRegGem, FaUsers } from "react-icons/fa6";
 export const metadata = {
   title: "About Us | Free Flow",
 };
@@ -66,7 +66,7 @@ const ValuesPage = () => {
               <p>Exemplifying fairness and ethical behavior in every aspect.</p>
             </div>
             <div className="border-2 border-gray-100 rounded-full drop-shadow-sm p-4 my-4">
-              <FaHandsPraying className="h-12 w-12 text-blue-800" />
+              <FaUsers className="h-12 w-12 text-blue-800" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const ValuesPage = () => {
             </p>
           </div>
           <div className="border-2 border-gray-100 rounded-full drop-shadow-sm p-4 my-4">
-            <FaRegHandshake className="h-12 w-12 text-blue-800" />
+            <FaRegGem className="h-12 w-12 text-blue-800" />
           </div>
         </div>
       </div>
