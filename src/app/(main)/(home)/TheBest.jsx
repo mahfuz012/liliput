@@ -1,5 +1,5 @@
 import React from 'react';
-import computer from "../../../src/assets/computer.webp"
+import computer from "@/assets/computer.webp"
 import Image from 'next/image';
 
 const TheBest = () => {

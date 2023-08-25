@@ -1,5 +1,5 @@
-import TitleSection from "@/Components/TitleSection";
 import React from "react";
+import AboutHome from "./AboutHome";
 export const metadata = {
   title: "About Us | Free Flow",
 };
@@ -7,7 +7,7 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <div>
-      <TitleSection title="Know about free flow"/>
+      <AboutHome />
     </div>
   );
 };
