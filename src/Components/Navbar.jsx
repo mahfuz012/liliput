@@ -96,19 +96,25 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-
-{userProfile?
-        <>
-        
-        <Link href={'/postjobs'}> <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
-        Post Jobs
-      </button></Link> </>:<>
-      
-     <Link href={'/login'}> <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
-            Post Jobs
-          </button></Link> </>
-}
-
+          {userProfile ? (
+            <>
+              <Link href={"/postjobs"}>
+                {" "}
+                <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
+                  Post Jobs
+                </button>
+              </Link>{" "}
+            </>
+          ) : (
+            <>
+              <Link href={"/login"}>
+                {" "}
+                <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
+                  Post Jobs
+                </button>
+              </Link>{" "}
+            </>
+          )}
 
           <div className="hidden md:block">
             <ul className="flex menu menu-horizontal gap-2 text-[16px] font-medium">
