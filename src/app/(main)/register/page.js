@@ -73,19 +73,19 @@ const RegistrationPage = () => {
   const password = watch("password");
 
   return (
-    <div className="my-10 container mx-auto border">
+    <div className="my-10 container mx-auto">
       <div className="flex justify-center py-10 border-2">
         <form
           onSubmit={handleSubmit(submitFunction)}
           className="p-5 text-center "
         >
-          <h1 className="text-gray-600 pb-5 text-3xl font-bold mb-2">
+          <h1 className="pb-5 text-3xl font-bold mb-2">
             Registration
           </h1>
           <div className="flex flex-col items-center">
             <input
               {...register("text", { required: true })}
-              className="border border-blue-300 w-full sm:w-80 my-2 p-2 "
+              className="border border-black rounded-md w-full lg:w-80 my-2 p-2 "
               type="text"
               placeholder="Type your Name"
               name="text"
@@ -98,7 +98,7 @@ const RegistrationPage = () => {
 
             <input
               {...register("email", { required: true })}
-              className="border border-blue-300  w-full sm:w-80 my-2 p-2 "
+              className="border border-black rounded-md w-full lg:w-80 my-2 p-2 "
               type="email"
               placeholder="Type your Email"
               name="email"
@@ -111,7 +111,7 @@ const RegistrationPage = () => {
 
             <input
               {...register("url")}
-              className="border border-blue-300 w-full sm:w-80 my-2 p-2 "
+              className="border border-black rounded-md w-full lg:w-80 my-2 p-2 "
               type="url"
               placeholder="Type your Profile URL"
               name="url"
@@ -127,7 +127,7 @@ const RegistrationPage = () => {
                 required: true,
                 validate: validatePassword,
               })}
-              className=" border-blue-300 w-full sm:w-80 border my-2 p-2"
+              className=" border-black rounded-md w-full lg:w-80 border my-2 p-2"
               type="password"
               placeholder="Type your password"
               name="password"
@@ -144,7 +144,7 @@ const RegistrationPage = () => {
                 validate: (value) =>
                   value === password || "Passwords don't match",
               })}
-              className=" border-blue-300 w-full sm:w-80 border my-2 p-2"
+              className=" border-black rounded-md w-full lg:w-80 border my-2 p-2"
               type="password"
               placeholder="Confirm your password"
               name="confirm"
@@ -157,7 +157,7 @@ const RegistrationPage = () => {
 
             <input
               value="Register"
-              className="w-52  my-2 p-2  bg-blue-600 text-white"
+              className="btn w-full lg:w-80 my-5 bg-blue-700 text-white"
               type="submit"
             />
           </div>
