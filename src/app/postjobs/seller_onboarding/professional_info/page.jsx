@@ -22,7 +22,6 @@ const ProfessionalInfo = () => {
       "Affiliate Marketer",
       "Social Media Marketer",
       "SEO Specialist",
-
       "Content Creator",
       "Email Marketer",
     ],
@@ -49,9 +48,8 @@ const ProfessionalInfo = () => {
       "Market Research Analyst",
       "Machine Learning Engineer",
     ],
-    Photographer: [
+    "Photographer": [
       "Photographer",
-
       "Portrait Photographer",
       "Event Photographer",
       "Fashion Photographer",
@@ -61,7 +59,6 @@ const ProfessionalInfo = () => {
       "Digital Translator",
       "Language Specialist",
       "Localization Expert",
-
       "Bilingual Content Creator",
       "Language Tutor",
     ],
@@ -73,7 +70,7 @@ const ProfessionalInfo = () => {
       "Influencer",
       "Social Media Content Creator",
     ],
-    Programmer: [
+    "Programmer": [
       "Software Engineer",
       "Application Developer",
       "Game Developer",

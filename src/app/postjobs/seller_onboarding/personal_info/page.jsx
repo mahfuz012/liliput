@@ -3,27 +3,9 @@ import Buttonline from "@/Components/Buttonline";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
-
+import { languages } from "@/data/languages";
 const personalInfo = () => {
-  const languages = [
-    "English",
-    "French",
-    "German",
-    "Italian",
-    "Spanish",
-    "Chinese",
-    "Japanese",
-    "Korean",
-    "Portuguese",
-    "Russian",
-    "Hindi",
-    "Arabic",
-    "Turkish",
-    "Greek",
-    "Thai",
-    "Vietnamese",
-    "Polish",
-  ];
+  
 
   function Personalinfo(e) {
     e.preventDefault();
@@ -164,7 +146,7 @@ const personalInfo = () => {
           </div>
 
           <div className=" flex justify-end my-16 ">
-            <Link href={"/postjobs/seller_onboarding/professional_info"}>
+            <Link href="/postjobs/seller_onboarding/professional_info">
               <input
                 type="submit"
                 value="Continue"
