@@ -10,8 +10,11 @@ import {
   FacebookAuthProvider,
   GoogleAuthProvider,
   signInWithPopup,
+
+  sendEmailVerification,
 } from "firebase/auth";
 import app from "@/Firebase/Firebase.config";
+import axios from "axios";
 
 export const AuthContextPro = createContext([]);
 
@@ -56,16 +59,68 @@ const AuthProviderPro = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  useEffect(() => {
-    const unheat = onAuthStateChanged(auth, (currentUser) => {
-      setProfile(currentUser);
-      setLoader(false);
-    });
+  const actionCodeSettings = {
+ 
+    handleCodeInApp: true
+  };
 
-    return () => {
-      return unheat();
-    };
-  }, []);
+const emailVerifySubmit = ()=>{
+  return sendEmailVerification(auth.currentUser)
+}
+
+
+
+
+
+
+
+
+  
+useEffect(() => {
+  const unheat = onAuthStateChanged(auth, currentUser => {
+      setProfile(currentUser)
+      if(currentUser){
+      
+  
+      axios.post(`http://localhost:5000/jwt`, {email:currentUser.email}
+      )
+      .then(data=>{
+       console.log(data.data.token);
+       localStorage.setItem('JWT-token',data.data.token)
+       setLoader(false)
+
+
+      })
+   }else{
+       localStorage.removeItem('JWT-token')
+   }
+
+})
+
+
+
+
+return () => {
+      return unheat()
+  }
+
+
+}, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const passValue = {
     createRegister,
@@ -76,6 +131,7 @@ const AuthProviderPro = ({ children }) => {
     userProfile,
     loginProfile,
     loader,
+    emailVerifySubmit
   };
 
   return (

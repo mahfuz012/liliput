@@ -1,13 +1,27 @@
 "use client"
 import Buttonline from '@/Components/Buttonline';
+import { useRouter } from 'next/navigation';
 
-import { useRef, useState } from 'react';
+import { Suspense, useRef, useState } from 'react';
 import { FaStarOfLife } from 'react-icons/fa';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import Loading from './loading';
 
 
 
 const professionalInfo = () => {
+
+
+
+
+
+
+
+
+
+
+  const navigationbar = useRouter()
+
 
 
   const occupation_names = [
@@ -104,10 +118,12 @@ const freelancerSkills = [
     "Data Analysis"
   ]
 
+ const from_date = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'];
 
 
+// ==============================================================================
+// occupation functionality 
 
-  const from_date = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'];
 
   const [datesValue, setDatesTo] = useState(["2023"]);
 
@@ -140,6 +156,13 @@ const freelancerSkills = [
   }
 
 
+// ====================================================================================
+
+
+
+
+// =======================================================================
+// skills functionality 
 
 
 
@@ -189,17 +212,23 @@ function deleteSkill(props){
     setbutton(false)
     setwarning("")
 }
-
-
-
-
-
-
-
 console.log(storeSkillValues);
+
+// ===============================================================================
+
+
+
+
+
+
+
+
+
 
 
 function professioanlSubmitInfo(e){
+
+
   e.preventDefault()
 
   const occupation_Major = e.target.occupationMajor.value;
@@ -220,7 +249,7 @@ const Subject_Name =   e.target.SubjectName.value
 const Year = e.target.year.value
 const Education = {University_Name,Subject_Name,Year}
 
-
+// ------------------------------------------------------
 const spend_Time =  e.target.spendTime.value
 const Certification_Reward =  e.target.CertificationReward.value
 const Certificate_Link  = e.target.CertificateLink.value
@@ -229,9 +258,14 @@ const Certificate = {Certification_Reward,Certificate_Link}
 
 const professional_Data = {occupation,Skills,Education,Certificate,spend_Time}
 
-const getData = JSON.parse(localStorage.getItem("details"));
+// set to localstorage --------------------------------------
 
+const getData = JSON.parse(localStorage.getItem("details"));
+getData.professional = professional_Data
+
+localStorage.setItem("details", JSON.stringify(getData))
 console.log(getData);
+navigationbar.push("/postjobs/seller_onboarding/linked_account")
 
 }
 
@@ -242,7 +276,10 @@ console.log(getData);
 
 
   return (
+    <Suspense fallback={Loading}>
     <>
+
+
       <div>
         <Buttonline gives0={true} gives1={true} />
       </div>
@@ -257,8 +294,9 @@ console.log(getData);
       </div>
 
       <div className="formsubmit mt-20">
-        <form className='mb-20' onSubmit={professioanlSubmitInfo}>
-          <div className="flex justify-center ">
+        <form className='mb-20 px-10 sm:px-0' onSubmit={professioanlSubmitInfo}>
+          <div className="sm:flex justify-center ">
+
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Your Occupation
@@ -269,7 +307,7 @@ console.log(getData);
 
             <div className=" sm:w-8/12">
               <div style={{ alignItems: "center" }} className="sm:flex">
-                <select
+                <select required
                 name="occupationMajor"
                   onChange={ocupationSelection}
           
@@ -283,7 +321,7 @@ console.log(getData);
                 </select>
 
                 <p className="mx-2">From</p>
-                <select
+                <select required
                 name="occupationperiods1"
                   onChange={datechangefiles}
                   className="border border-gray-500 rounded-md p-2 mx-1"
@@ -295,7 +333,7 @@ console.log(getData);
 
                 <p className="mx-2">To</p>
 
-                <select
+                <select 
                 name="occupationperiods2"
                 className="border border-gray-500 rounded-md p-2 mx-1">
                   {datesValue.map((p, index) => (
@@ -310,7 +348,7 @@ console.log(getData);
                 of your best skills in Business :{" "}
               </p>
 
-              <div className="grid grid-cols-3">
+              <div className="sm:grid grid-cols-3">
                 {ocupation_category.map((occupation, index) => (
                   <p
           
@@ -319,7 +357,7 @@ console.log(getData);
                     key={index}
                   >
                
-                    <input
+                    <input 
                     name='occupationSkills'
                       id={`checkbox-${index}`}
                       className="mx-1"
@@ -338,7 +376,7 @@ console.log(getData);
 {/* ---------------------------------------------------------------------- */}
 
 
-<div className="flex justify-center my-20 ">
+<div className="sm:flex justify-center my-16 ">
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Skills
@@ -360,7 +398,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
              </select>
 
 
-             <select ref={levelValue} className="border sm:w-3/12 border-gray-500 rounded-md p-2 mx-1">
+             <select required ref={levelValue} className="border sm:w-3/12 border-gray-500 rounded-md p-2 mx-1">
              <option className='bg-blue-100' value={"Beginner"}>Beginner</option>
              <option className='bg-blue-100' value={"Intermediate"}>Intermediate</option>
              <option className='bg-blue-100' value={"Expert"}>Expert</option>
@@ -419,7 +457,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
 
-<div className="flex justify-center my-16 ">
+<div className="sm:flex justify-center my-16 ">
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Education
@@ -430,10 +468,10 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
             <div className=" sm:w-8/12">
 
-            <input name='UniversityName' placeholder='Your University Name...' type='text' className='border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12' />
-            <input name='SubjectName' placeholder='Your Major Subject...' type='text' className='border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12' />
+            <input required name='UniversityName' placeholder='Your University Name...' type='text' className='border  border-gray-500 rounded-md p-2 my-1 mx-1 sm:w-4/12' />
+            <input required name='SubjectName' placeholder='Your Major Subject...' type='text' className='border  border-gray-500 rounded-md p-2 my-1 mx-1 sm:w-5/12' />
         
-<select name='year' className="border text-center border-gray-500 rounded-md p-2 mx-1 sm:w-2/12" >
+<select  name='year' className="border text-center border-gray-500 rounded-md p-2 mx-1 sm:w-2/12" >
   <option > Year</option>
   <option value={"1st year"}>1st year </option>
   <option value={"2nd year"}>2nd year</option>
@@ -446,7 +484,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 {/* ---------------------------------------------------------------- */}
 
-<div className="flex justify-center my-16 ">
+<div className="sm:flex justify-center my-16 ">
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
               Certification
@@ -458,9 +496,9 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
             <div className=" sm:w-8/12">
 
 
-            <input name='CertificationReward' placeholder='Certificate Reward' type='text' className='border  border-gray-500 rounded-md p-2 mx-1 sm:w-3/12' />
+            <input required name='CertificationReward' placeholder='Certificate Reward' type='text' className='border  border-gray-500 rounded-md my-1 p-2 mx-1 sm:w-3/12' />
         
-            <input name='CertificateLink' placeholder='Provide Your Link ' type="url" className='border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12' />
+            <input required name='CertificateLink' placeholder='Provide Your Link ' type="url" className='border  border-gray-500 rounded-md my-1 p-2 mx-1 sm:w-5/12' />
 
          <p className='my-2 text-gray-500 ms-2'>Kindly provide me with the link to your uploaded image (using platforms like imgbb or others)</p>
         
@@ -474,7 +512,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
 
-<div className="flex justify-center my-16 ">
+<div className="sm:flex justify-center my-16 ">
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
               Spend time
@@ -485,7 +523,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
             <div className=" sm:w-8/12">
 
-            <input name='spendTime' type='number' className='border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border' min='0' />
+            <input required name='spendTime' type='number' className='border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border' min='0' />
             <span className='mx-2 text-md'>Hours</span>
 
             </div>
@@ -496,7 +534,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
 <div className='sm:flex justify-end'>
-<input type='submit' value='Continue' className='sm:w-2/12 mx-10 text-white btn btn-success'></input>
+<input required type='submit' value='Continue' className='sm:w-2/12 sm:mx-10 text-white btn btn-success'></input>
 </div>
 
 
@@ -505,6 +543,7 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
         </form>
       </div>
     </>
+    </Suspense>
   );
 };
 

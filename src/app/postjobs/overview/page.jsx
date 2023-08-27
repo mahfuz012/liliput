@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+
 
 import React from 'react';
 import { AiOutlineLink } from 'react-icons/ai';

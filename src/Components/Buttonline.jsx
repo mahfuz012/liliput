@@ -42,7 +42,7 @@ setmatch3(matc4)
 
     return (
         <>
-        <div className='flex mt-6 justify-center border p-3'>
+        <div className='sm:flex mt-6 justify-center   border p-3'>
 
 
        <Link href={'/postjobs/seller_onboarding/personal_info'}>  <button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match && "text-success"} `}>
@@ -67,7 +67,7 @@ setmatch3(matc4)
            <Link href={'/postjobs/seller_onboarding/linked_account'}> <button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match3?"text-success":"text-gray-500"}`}>
 
             <PiNumberCircleThreeFill   className={`text-3xl mx-2 ${match3?"text-success":"text-gray-500"}  `}/>
-            Linked Accounts
+            Verifiy Accounts
             <BiRightArrow className={`text-2xl mx-1  ${match3?"text-success":"text-gray-500"}`} />
             </button> </Link>
 
@@ -75,7 +75,7 @@ setmatch3(matc4)
 
             <Link href={'/postjobs/seller_onboarding/account_security'}><button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match4?"text-success":"text-gray-500"}`}>
             <PiNumberCircleFourFill  className={`text-3xl mx-2 ${match4?"text-success":"text-gray-500"}  `}/>
-            Acount Security
+            Condition
             <BiRightArrow className={`text-2xl mx-1  ${match4?"text-success":"text-gray-500"}`} />
             </button></Link>
         </div>

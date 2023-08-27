@@ -74,14 +74,14 @@ const LoginPage = () => {
         console.log(error);
         const errorCodes = error.code;
         if (errorCodes === "auth/wrong-password") {
-          swal({
+          new swal({
             title: "password not match, please again?",
 
             icon: "warning",
             dangerMode: true,
           });
         } else if (errorCodes === "auth/user-not-found") {
-          swal({
+          new swal({
             title: "You have no account, register Now?",
 
             icon: "warning",
