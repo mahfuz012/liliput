@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 import Buttonline from '@/Components/Buttonline';
 import { useRouter } from 'next/navigation';
@@ -10,8 +11,16 @@ import Loading from './loading';
 
 
 const professionalInfo = () => {
+=======
+"use client";
+import Buttonline from "@/Components/Buttonline";
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 
+import { useRef, useState } from "react";
+import { FaStarOfLife } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
+<<<<<<< HEAD
 
 
 
@@ -24,6 +33,9 @@ const professionalInfo = () => {
 
 
 
+=======
+const ProfessionalInfo = () => {
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
   const occupation_names = [
     "Digital Marketing",
     "Video Editor",
@@ -35,76 +47,72 @@ const professionalInfo = () => {
     "Programmer",
   ];
 
-
   const occupation_categories = {
     "Digital Marketing": [
-        "Affiliate Marketer",
-        "Social Media Marketer",
-        "SEO Specialist",
-  
-        "Content Creator",
-        "Email Marketer"
+      "Affiliate Marketer",
+      "Social Media Marketer",
+      "SEO Specialist",
+
+      "Content Creator",
+      "Email Marketer",
     ],
     "Video Editor": [
-        "Video Editor",
-        "Motion Graphics Designer",
-        "Film Editor",
-        "YouTube Content Creator",
-        "Video Production Assistant",
-       
+      "Video Editor",
+      "Motion Graphics Designer",
+      "Film Editor",
+      "YouTube Content Creator",
+      "Video Production Assistant",
     ],
     "Web Developer": [
-        "Web Developer",
-        "Front-End Developer",
-        "Back-End Developer",
-        "Full-Stack Developer",
-        "UI/UX Designer",
-        "Web Application Developer"
+      "Web Developer",
+      "Front-End Developer",
+      "Back-End Developer",
+      "Full-Stack Developer",
+      "UI/UX Designer",
+      "Web Application Developer",
     ],
     "Data Analyst": [
-        "Data Analyst",
-        "Data Scientist",
-        "Business Analyst",
-        "Quantitative Analyst",
-        "Market Research Analyst",
-        "Machine Learning Engineer"
+      "Data Analyst",
+      "Data Scientist",
+      "Business Analyst",
+      "Quantitative Analyst",
+      "Market Research Analyst",
+      "Machine Learning Engineer",
     ],
-    "Photographer": [
-        "Photographer",
-  
-        "Portrait Photographer",
-        "Event Photographer",
-        "Fashion Photographer",
-        "Commercial Photographer"
+    Photographer: [
+      "Photographer",
+
+      "Portrait Photographer",
+      "Event Photographer",
+      "Fashion Photographer",
+      "Commercial Photographer",
     ],
     "Digital Translator": [
-        "Digital Translator",
-        "Language Specialist",
-        "Localization Expert",
-        
-        "Bilingual Content Creator",
-        "Language Tutor"
+      "Digital Translator",
+      "Language Specialist",
+      "Localization Expert",
+
+      "Bilingual Content Creator",
+      "Language Tutor",
     ],
     "Content Creator": [
-        "Content Creator",
-        "Blogger",
-        "Vlogger",
-        "Podcaster",
-        "Influencer",
-        "Social Media Content Creator"
+      "Content Creator",
+      "Blogger",
+      "Vlogger",
+      "Podcaster",
+      "Influencer",
+      "Social Media Content Creator",
     ],
-    "Programmer": [
-     
-        "Software Engineer",
-        "Application Developer",
-        "Game Developer",
-        "Embedded Systems Engineer",
-        "Mobile App Developer"
-    ]
-};
+    Programmer: [
+      "Software Engineer",
+      "Application Developer",
+      "Game Developer",
+      "Embedded Systems Engineer",
+      "Mobile App Developer",
+    ],
+  };
 
-
-const freelancerSkills = [
+  const freelancerSkills = [
     "Select Your Skill",
     "Web Design",
     "Graphic Design",
@@ -115,21 +123,35 @@ const freelancerSkills = [
     "Video Editing",
     "Photography",
     "Translation",
-    "Data Analysis"
-  ]
+    "Data Analysis",
+  ];
 
+<<<<<<< HEAD
  const from_date = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'];
 
 
 // ==============================================================================
 // occupation functionality 
 
+=======
+  const from_date = [
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+  ];
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 
   const [datesValue, setDatesTo] = useState(["2023"]);
 
   function datechangefiles(e) {
     const datavalue = e.target.value;
-    const matchdata = from_date.filter(p => datavalue <= p);
+    const matchdata = from_date.filter((p) => datavalue <= p);
     setDatesTo(matchdata);
   }
 
@@ -144,8 +166,6 @@ const freelancerSkills = [
     ].map((occupation) => ({ name: occupation, checked: false }))
   );
 
-
-  
   function ocupationSelection(e) {
     const getValue = e.target.value;
     const findata = occupation_categories[getValue].map((occupation) => ({
@@ -155,6 +175,7 @@ const freelancerSkills = [
     setCategory(findata);
   }
 
+<<<<<<< HEAD
 
 // ====================================================================================
 
@@ -167,43 +188,65 @@ const freelancerSkills = [
 
 
   const [skillvaluechecklist,skillvaluecheck] = useState([])
+=======
+  const [skillvaluechecklist, skillvaluecheck] = useState([]);
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
   function checkvalue(index) {
-
     const updatedCategory = [...ocupation_category];
 
     updatedCategory[index].checked = !updatedCategory[index].checked;
     setCategory(updatedCategory);
-    const valueget = updatedCategory.filter(p=>p.checked === true)
-   skillvaluecheck(valueget);
+    const valueget = updatedCategory.filter((p) => p.checked === true);
+    skillvaluecheck(valueget);
   }
 
+  const [storeSkillValues, setSkillValues] = useState([]);
+  const [warings, setwarning] = useState("");
+  const [buttondisble, setbutton] = useState(false);
+  const categorySkill = useRef();
+  const levelValue = useRef();
 
+  function skillSelection(e) {
+    e.preventDefault();
+    const skills = categorySkill.current.value;
+    const level = levelValue.current.value;
+    const Skill = { Skills: skills, Level: level };
 
+    if (!storeSkillValues) {
+      setSkillValues(Skill);
+    } else if (storeSkillValues.length <= 2) {
+      setSkillValues([...storeSkillValues, Skill]);
+    } else {
+      setwarning("Sorry you can't give more than three skills");
+      setbutton(true);
+    }
+  }
 
+  function deleteSkill(props) {
+    const deleteData = storeSkillValues.filter((p) => p.Skills !== props);
 
-const [storeSkillValues,setSkillValues] = useState([])
-const [warings,setwarning] = useState("")
-const [buttondisble,setbutton] = useState(false)
-const categorySkill = useRef()
-const  levelValue = useRef()
+    setSkillValues(deleteData);
+    setbutton(false);
+    setwarning("");
+  }
 
-function skillSelection(e){
-    e.preventDefault()
-    const skills = categorySkill.current.value
-    const level = levelValue.current.value
-const Skill = {Skills:skills,Level:level}
+  console.log(storeSkillValues);
 
-if(!storeSkillValues){
-    setSkillValues(Skill)
-}  else if(storeSkillValues.length <= 2){
-  setSkillValues([...storeSkillValues,Skill])
-}else{
-    setwarning("Sorry you can't give more than three skills")
-    setbutton(true)
-}
-}
+  function professioanlSubmitInfo(e) {
+    e.preventDefault();
 
+    const occupation_Major = e.target.occupationMajor.value;
+    const From = e.target.occupationperiods1.value;
+    const End = e.target.occupationperiods2.value;
+    const occupation_periods = { From, End };
+    const occupation_Categories = skillvaluechecklist;
+    const occupation = {
+      occupation_Major,
+      occupation_periods,
+      occupation_Categories,
+    };
 
+<<<<<<< HEAD
 function deleteSkill(props){
 
     const deleteData = storeSkillValues.filter(p=>p.Skills !== props)
@@ -268,12 +311,35 @@ console.log(getData);
 navigationbar.push("/postjobs/seller_onboarding/linked_account")
 
 }
+=======
+    // ----------------------------------------------------
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 
+    const Skills = { storeSkillValues };
+    // ----------------------------------------------
 
+    const University_Name = e.target.UniversityName.value;
+    const Subject_Name = e.target.SubjectName.value;
+    const Year = e.target.year.value;
+    const Education = { University_Name, Subject_Name, Year };
 
+    const spend_Time = e.target.spendTime.value;
+    const Certification_Reward = e.target.CertificationReward.value;
+    const Certificate_Link = e.target.CertificateLink.value;
+    const Certificate = { Certification_Reward, Certificate_Link };
 
+    const professional_Data = {
+      occupation,
+      Skills,
+      Education,
+      Certificate,
+      spend_Time,
+    };
 
+    const getData = JSON.parse(localStorage.getItem("details"));
 
+    console.log(getData);
+  }
 
   return (
     <Suspense fallback={Loading}>
@@ -285,32 +351,45 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
       </div>
       <div>
         <div className="border py-10 px-5 sm:w-10/12 container mx-auto bg-gray-100  text-center">
-          <p className="text-gray-600 font-semibold text-3xl ">-- Professional Info -- </p>
+          <p className="text-gray-600 font-semibold text-3xl ">
+            -- Professional Info --{" "}
+          </p>
           <p className="text-gray-600 ">
-            This is your time to shine. Let potential buyers know what you do best and how you gained your
-            skills, certifications and experience..
+            This is your time to shine. Let potential buyers know what you do
+            best and how you gained your skills, certifications and experience..
           </p>
         </div>
       </div>
 
       <div className="formsubmit mt-20">
+<<<<<<< HEAD
         <form className='mb-20 px-10 sm:px-0' onSubmit={professioanlSubmitInfo}>
           <div className="sm:flex justify-center ">
 
+=======
+        <form className="mb-20" onSubmit={professioanlSubmitInfo}>
+          <div className="flex justify-center ">
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Your Occupation
                 <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-                <span className="text-gray-500 italic text-sm mx-2 mt-2">(Private)</span>{" "}
+                <span className="text-gray-500 italic text-sm mx-2 mt-2">
+                  (Private)
+                </span>{" "}
               </p>
             </div>
 
             <div className=" sm:w-8/12">
               <div style={{ alignItems: "center" }} className="sm:flex">
+<<<<<<< HEAD
                 <select required
                 name="occupationMajor"
+=======
+                <select
+                  name="occupationMajor"
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
                   onChange={ocupationSelection}
-          
                   className="border border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
                 >
                   {occupation_names.map((p, index) => (
@@ -321,8 +400,13 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
                 </select>
 
                 <p className="mx-2">From</p>
+<<<<<<< HEAD
                 <select required
                 name="occupationperiods1"
+=======
+                <select
+                  name="occupationperiods1"
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
                   onChange={datechangefiles}
                   className="border border-gray-500 rounded-md p-2 mx-1"
                 >
@@ -333,9 +417,16 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
 
                 <p className="mx-2">To</p>
 
+<<<<<<< HEAD
                 <select 
                 name="occupationperiods2"
                 className="border border-gray-500 rounded-md p-2 mx-1">
+=======
+                <select
+                  name="occupationperiods2"
+                  className="border border-gray-500 rounded-md p-2 mx-1"
+                >
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
                   {datesValue.map((p, index) => (
                     <option key={index}>{p}</option>
                   ))}
@@ -351,14 +442,18 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
               <div className="sm:grid grid-cols-3">
                 {ocupation_category.map((occupation, index) => (
                   <p
-          
                     style={{ alignItems: "center" }}
                     className="font-semibold text-gray-600 m-1 flex"
                     key={index}
                   >
+<<<<<<< HEAD
                
                     <input 
                     name='occupationSkills'
+=======
+                    <input
+                      name="occupationSkills"
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
                       id={`checkbox-${index}`}
                       className="mx-1"
                       onChange={() => checkvalue(index)}
@@ -373,26 +468,52 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------- */}
+          {/* ---------------------------------------------------------------------- */}
 
+<<<<<<< HEAD
 
 <div className="sm:flex justify-center my-16 ">
+=======
+          <div className="flex justify-center my-20 ">
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Skills
                 <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-                
               </p>
             </div>
 
             <div className=" sm:w-8/12">
+              <div className="border bg-gray-100 p-3 rounded-2xl">
+                <p className="text-center font-bold text-red-600">{warings}</p>
 
-         <div className='border bg-gray-100 p-3 rounded-2xl'>
-<p className='text-center font-bold text-red-600'>{warings}</p>
+                <select
+                  ref={categorySkill}
+                  className="border sm:w-6/12 border-gray-500 rounded-md p-2 mx-1"
+                >
+                  {freelancerSkills?.map((p, index) => (
+                    <option className="bg-blue-100" key={index}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
 
-            <select ref={categorySkill} className="border sm:w-6/12 border-gray-500 rounded-md p-2 mx-1">
-                {
+                <select
+                  ref={levelValue}
+                  className="border sm:w-3/12 border-gray-500 rounded-md p-2 mx-1"
+                >
+                  <option className="bg-blue-100" value={"Beginner"}>
+                    Beginner
+                  </option>
+                  <option className="bg-blue-100" value={"Intermediate"}>
+                    Intermediate
+                  </option>
+                  <option className="bg-blue-100" value={"Expert"}>
+                    Expert
+                  </option>
+                </select>
 
+<<<<<<< HEAD
 freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}</option>)
                 }
              </select>
@@ -446,11 +567,53 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
              </div>
+=======
+                <button
+                  disabled={buttondisble}
+                  onClick={skillSelection}
+                  className="btn sm:w-2/12  bg-lime-600  text-white mx-2"
+                >
+                  Add
+                </button>
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 
+                <div className="overflow-x-auto">
+                  <table className="table">
+                    {/* head */}
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Skill</th>
+                        <th>Level</th>
+                        <th>Remove</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {storeSkillValues?.map((p, index) => (
+                        <>
+                          <tr>
+                            <th>{index + 1}</th>
+                            <th>{p.Skills}</th>
+                            <th>{p.Level}</th>
+                            <th>
+                              <RiDeleteBin5Fill
+                                onClick={() => deleteSkill(p.Skills)}
+                                className="text-3xl text-red-700"
+                              />
+                            </th>
+                          </tr>
+                        </>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* -------------------------------------------------------- */}
 
+<<<<<<< HEAD
 {/* -------------------------------------------------------- */}
 
 
@@ -458,16 +621,31 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
 <div className="sm:flex justify-center my-16 ">
+=======
+          <div className="flex justify-center my-16 ">
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
                 Education
                 <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              
               </p>
             </div>
 
             <div className=" sm:w-8/12">
+              <input
+                name="UniversityName"
+                placeholder="Your University Name..."
+                type="text"
+                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+              />
+              <input
+                name="SubjectName"
+                placeholder="Your Major Subject..."
+                type="text"
+                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
+              />
 
+<<<<<<< HEAD
             <input required name='UniversityName' placeholder='Your University Name...' type='text' className='border  border-gray-500 rounded-md p-2 my-1 mx-1 sm:w-4/12' />
             <input required name='SubjectName' placeholder='Your Major Subject...' type='text' className='border  border-gray-500 rounded-md p-2 my-1 mx-1 sm:w-5/12' />
         
@@ -481,21 +659,52 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
  </select>
 </div>
 </div>
+=======
+              <select
+                name="year"
+                className="border text-center border-gray-500 rounded-md p-2 mx-1 sm:w-2/12"
+              >
+                <option> Year</option>
+                <option value={"1st year"}>1st year </option>
+                <option value={"2nd year"}>2nd year</option>
+                <option value={"3rd year"}>3rd year </option>
+                <option value={"4th year"}>4th year</option>
+                <option value={"Others"}> Others</option>
+              </select>
+            </div>
+          </div>
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 
-{/* ---------------------------------------------------------------- */}
+          {/* ---------------------------------------------------------------- */}
 
+<<<<<<< HEAD
 <div className="sm:flex justify-center my-16 ">
+=======
+          <div className="flex justify-center my-16 ">
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
-              Certification
+                Certification
                 <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              
               </p>
             </div>
 
             <div className=" sm:w-8/12">
+              <input
+                name="CertificationReward"
+                placeholder="Certificate Reward"
+                type="text"
+                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-3/12"
+              />
 
+              <input
+                name="CertificateLink"
+                placeholder="Provide Your Link "
+                type="url"
+                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
+              />
 
+<<<<<<< HEAD
             <input required name='CertificationReward' placeholder='Certificate Reward' type='text' className='border  border-gray-500 rounded-md my-1 p-2 mx-1 sm:w-3/12' />
         
             <input required name='CertificateLink' placeholder='Provide Your Link ' type="url" className='border  border-gray-500 rounded-md my-1 p-2 mx-1 sm:w-5/12' />
@@ -506,29 +715,51 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
             </div>
+=======
+              <p className="my-2 text-gray-500 ms-2">
+                Kindly provide me with the link to your uploaded image (using
+                platforms like imgbb or others)
+              </p>
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             </div>
+          </div>
 
-{/* ----------------------------------------------------------- */}
+          {/* ----------------------------------------------------------- */}
 
+<<<<<<< HEAD
 
 
 <div className="sm:flex justify-center my-16 ">
+=======
+          <div className="flex justify-center my-16 ">
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <div className="sm:w-3/12">
               <p className="text-xl text-gray-700 flex ">
-              Spend time
+                Spend time
                 <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              
               </p>
             </div>
 
             <div className=" sm:w-8/12">
+<<<<<<< HEAD
 
             <input required name='spendTime' type='number' className='border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border' min='0' />
             <span className='mx-2 text-md'>Hours</span>
 
             </div>
+=======
+              <input
+                name="spendTime"
+                type="number"
+                className="border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border"
+                min="0"
+              />
+              <span className="mx-2 text-md">Hours</span>
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             </div>
+          </div>
 
+<<<<<<< HEAD
 
 
 
@@ -540,6 +771,15 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
 
 
           
+=======
+          <div className="sm:flex justify-end">
+            <input
+              type="submit"
+              value="Continue"
+              className="sm:w-2/12 mx-10 text-white btn btn-success"
+            ></input>
+          </div>
+>>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
         </form>
       </div>
     </>
@@ -547,36 +787,4 @@ freelancerSkills?.map((p,index)=><option className='bg-blue-100' key={index}>{p}
   );
 };
 
-export default professionalInfo;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default ProfessionalInfo;

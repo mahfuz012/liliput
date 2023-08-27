@@ -4,14 +4,18 @@ import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebookCircle } from "react-icons/bi";
-import React, { useContext, useRef } from "react";
+import React, { startTransition, useContext, useRef } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert2";
+import { useRouter, useSearchParams } from "next/navigation";
 export const metadata = {
   title: "Login | Free Flow",
 };
 
 const LoginPage = () => {
+  const search = useSearchParams();
+  const from = search.get("redirectUrl") || "/";
+  const { replace, refresh } = useRouter();
   const {
     resetpasswordsubmit,
     loginProfile,
@@ -63,12 +67,14 @@ const LoginPage = () => {
     loginProfile(email, password)
       .then((credenAccount) => {
         console.log(credenAccount);
-        swal({
-          title: "Login is Successfull",
-          icon: "success",
+        startTransition(() => {
+          refresh();
+          replace(from);
+          new swal({
+            title: "Login is Successfull",
+            icon: "success",
+          });
         });
-
-        reset();
       })
       .catch((error) => {
         console.log(error);
@@ -92,79 +98,73 @@ const LoginPage = () => {
   }
 
   return (
-    <div
-      style={{ alignItems: "center" }}
-      className="sm:flex px-5 sm:justify-center "
-    >
-      <div className="sm:w-5/12  px-10 sm:px-0 ">
+    <div className="my-10 container mx-auto">
+      <div className="container mx-auto px-10 py-10 border-2">
+        <h1 className="text-grey-700 text-3xl font-bold text-center my-5">
+          Login User
+        </h1>
         <form
           onSubmit={handleSubmit(loginSubmit)}
-          className="mt-5 pt-5 sm:text-center"
+          className="flex flex-col items-center"
         >
-          <h1 className="text-grey-700 text-3xl font-bold my-5">Login User</h1>
-          <div style={{ alignItems: "center" }} className="flex flex-col ">
-            <input
-              {...register("email", { required: true })}
-              className="border  w-full sm:w-80 my-2 p-2"
-              type="email"
-              placeholder="Type your email"
-              name="email"
-            />
-            {errors.email && (
-              <span className="text-red-700 -mt-1">
-                Please enter your email
-              </span>
-            )}
+          <input
+            {...register("email", { required: true })}
+            className="border border-black rounded-md w-full sm:w-80 my-2 p-2"
+            type="email"
+            placeholder="Type your email"
+            name="email"
+          />
+          {errors.email && (
+            <span className="text-red-700 -mt-1">Please enter your email</span>
+          )}
 
-            <input
-              {...register("password", { required: true })}
-              className="w-full sm:w-80  border my-2 p-2"
-              type="password"
-              placeholder="Type your password"
-              name="password"
-            />
+          <input
+            {...register("password", { required: true })}
+            className="w-full sm:w-80 border border-black rounded-md my-2 p-2"
+            type="password"
+            placeholder="Type your password"
+            name="password"
+          />
 
-            {errors.password && (
-              <span className="text-red-700 -mt-1">
-                Please enter your password
-              </span>
-            )}
-
-            <input
-              className=" w-full text-xl sm:w-52 rounded-2 my-2 p-2 rounded-md text-white bg-purple-800"
-              type="submit"
-              value="Login"
-            />
-          </div>
+          {errors.password && (
+            <span className="text-red-700 -mt-1">
+              Please enter your password
+            </span>
+          )}
+          <input
+            className=" w-full lg:w-80 rounded-2 btn my-3 text-white bg-blue-700 hover:bg-blue-800"
+            type="submit"
+            value="Login"
+          />
         </form>
-
         <div className=" text-center">
-          <p onClick={resetsubmit} className="btn btn-success">
-            reset
-          </p>
-          <p className="my-5 sm:px-5">
-            you havent registered yet,
+          <div className="cursor-auto mb-2">
+            <p>Forgot Password?</p>
+          </div>
+          <p className="sm:px-5 mb-3">
+            You havent registered yet,
             <Link
               href={"/register"}
-              className="font-bold text-xl mx-1 text-green-700"
+              className="font-bold text-xl ml-1 text-blue-800"
             >
               Registration
             </Link>
           </p>
         </div>
-
-        <div className="sm:flex justify-center mb-5 gap-2">
+        <div className="sm:flex flex-col items-center mb-5 gap-5">
           <button
             onClick={googleregister}
-            className="btn bg-base-100 border-black  my-2 sm:my-0 w-full sm:w-1/5 text-black"
+            className="btn bg-base-100 border-black  my-2 sm:my-0 w-full lg:w-80 text-black"
           >
             <FcGoogle className="text-xl" />
+            Sign In With Google
           </button>
           <button
             onClick={faceboookdopen}
-            className="btn bg-base-100 border-black  my-2 sm:my-0 w-full sm:w-1/5 text-black"
+            className="btn bg-base-100 border-black  my-2 sm:my-0 w-full lg:w-80 text-black"
           >
             <BiLogoFacebookCircle className="text-xl text-blue-500" />
+            Sign In With Facebook
           </button>
         </div>
       </div>
