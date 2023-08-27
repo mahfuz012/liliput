@@ -25,43 +25,6 @@ const Buttonline = ({ gives1, gives2, gives3, gives0 }) => {
     setmatch3(matc4);
   }, []);
 
-<<<<<<< HEAD
-const Buttonline = ({gives1,gives2,gives3,gives0}) => {
-
-const [match,setmatch] = useState(false)
-const [match2,setmatch1] = useState(false)
-const [match3,setmatch2] = useState(false)
-const [match4,setmatch3] = useState(false)
-
-useEffect(()=>{
-
-const matc1 =  gives0
-const matc2 = gives1 
-const matc3 =  gives2 
-const matc4 =  gives3 
-
-setmatch(matc1)
-setmatch1(matc2)
-setmatch2(matc3)
-setmatch3(matc4)
-
-
-
-
-},[])
-
-
-
-
-
-
-    return (
-        <>
-        <div className='sm:flex mt-6 justify-center   border p-3'>
-
-
-       <Link href={'/postjobs/seller_onboarding/personal_info'}>  <button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match && "text-success"} `}>
-=======
   return (
     <>
       <div className="flex mt-6 justify-center border p-3">
@@ -71,7 +34,6 @@ setmatch3(matc4)
             style={{ alignItems: "center" }}
             className={`mx-2 font-semibold flex ${match && "text-success"} `}
           >
->>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
             <PiNumberCircleOneFill
               className={`text-3xl mx-2 ${
                 match ? "text-success" : "text-gray-500"
@@ -103,28 +65,6 @@ setmatch3(matc4)
           </button>
         </Link>
 
-<<<<<<< HEAD
-
-
-
-           <Link href={'/postjobs/seller_onboarding/linked_account'}> <button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match3?"text-success":"text-gray-500"}`}>
-
-            <PiNumberCircleThreeFill   className={`text-3xl mx-2 ${match3?"text-success":"text-gray-500"}  `}/>
-            Verifiy Accounts
-            <BiRightArrow className={`text-2xl mx-1  ${match3?"text-success":"text-gray-500"}`} />
-            </button> </Link>
-
-
-
-            <Link href={'/postjobs/seller_onboarding/account_security'}><button style={{alignItems:'center'}} className={`mx-2 font-semibold flex ${match4?"text-success":"text-gray-500"}`}>
-            <PiNumberCircleFourFill  className={`text-3xl mx-2 ${match4?"text-success":"text-gray-500"}  `}/>
-            Condition
-            <BiRightArrow className={`text-2xl mx-1  ${match4?"text-success":"text-gray-500"}`} />
-            </button></Link>
-        </div>
-        </>
-    );
-=======
         <Link href={"/postjobs/seller_onboarding/linked_account"}>
           {" "}
           <button
@@ -170,7 +110,6 @@ setmatch3(matc4)
       </div>
     </>
   );
->>>>>>> 8d580ed8e3e828e411faa2a6e79283a7ac1225c0
 };
 
 export default Buttonline;
