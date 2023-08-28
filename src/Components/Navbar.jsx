@@ -100,7 +100,7 @@ const Navbar = () => {
             <>
               <Link href={"/postjobs"}>
                 {" "}
-                <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
+                <button className="btn bg-violet-700 hover:bg-cyan-900 mr-5 text-white">
                   Post Jobs
                 </button>
               </Link>{" "}
@@ -109,7 +109,7 @@ const Navbar = () => {
             <>
               <Link href={"/login"}>
                 {" "}
-                <button className="btn bg-violet-700 hover:bg-cyan-900 text-white">
+                <button className="btn bg-cyan-700 hover:bg-cyan-900 text-white">
                   Post Jobs
                 </button>
               </Link>{" "}
@@ -124,11 +124,11 @@ const Navbar = () => {
                     tabIndex={0}
                     className="btn-ghost btn-circle avatar btn"
                   >
-                    <div className="w-12 border-purple-700 border-2 rounded-full">
+                    <div className="w-11 border-purple-900 border-2 rounded-full">
                       <Image
                         title={userProfile?.displayName}
-                        width={200}
-                        height={200}
+                        width={180}
+                        height={180}
                         alt=""
                         src={userProfile?.photoURL || ""}
                       />

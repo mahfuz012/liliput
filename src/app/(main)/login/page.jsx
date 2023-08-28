@@ -31,21 +31,35 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  function googleregister() {
-    registerWithGoogle()
-      .then((res) => {
-        const dataAll = res.user;
-        console.log(dataAll);
-        // When  you would use banckend then use this data ============
+  const googleregister = async () => {
+    try {
+      const resGoogle = await registerWithGoogle();
+      const dataAll = resGoogle.user;
+      const uid = dataAll.uid;
+      const displayName = dataAll.displayName;
+      const email = dataAll.email;
+      const photo = dataAll.photoURL;
+      console.log(dataAll);
 
-        // const url = dataAll.photoURL
-        // const displayName = dataAll.displayName
-        // const email = dataAll.email
-        // const googleDataProvider = { email, url, displayName }
-      })
+      const resServer = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: uid,
+          name: displayName,
+          email: email,
+          photo: photo,
+        }),
+      });
 
-      .catch((error) => console.log(error));
-  }
+      const result = await resServer.json();
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const difref = useRef();
   function resetsubmit() {

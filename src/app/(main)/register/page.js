@@ -17,40 +17,56 @@ const RegistrationPage = () => {
     formState: { errors },
   } = useForm();
 
-  function submitFunction(data) {
+  const submitFunction = async (data) => {
     const displayName = data.text;
     const email = data.email;
     const url = data.url;
     const password = data.password;
 
-    createRegister(email, password, url, displayName)
-      .then((credentialUser) => {
-        updateProfile(credentialUser.user, {
-          displayName: displayName,
-          photoURL: String(url),
-        })
-          .then(() => {
-            console.log("Profile updated successfully.");
-          })
-          .catch((error) => {
-            console.log("Error updating profile: ", error);
-          });
+    try {
+      const credentialUser = await createRegister(
+        email,
+        password,
+        url,
+        displayName
+      );
+      await updateProfile(credentialUser.user, {
+        displayName: displayName,
+        photoURL: String(url),
+      });
 
+      const res = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: credentialUser.user.uid,
+          name: displayName,
+          email: email,
+        }),
+      });
+      const result = await res.json();
+      console.log(result);
+      console.log("Profile updated successfully.");
+
+      if (result.insertedId) {
         swal({
           text: `Hi ${userProfile?.displayName}, Successfully completed Registration`,
           icon: "success",
         });
+      }
 
-        reset();
-      })
-      .catch((error) => {
-        const errorNotice = error.message;
-        console.log(errorNotice);
-        if (errorNotice) {
-          swal("You are Using same email!", "Try Another gmail");
-        }
-      });
-  }
+      reset();
+    } catch (error) {
+      const errorNotice = error.message;
+      console.log(errorNotice);
+
+      if (errorNotice) {
+        swal("You are Using the same email!", "Try Another email");
+      }
+    }
+  };
 
   // ---------------------------------------------------------------------------
 
@@ -79,9 +95,7 @@ const RegistrationPage = () => {
           onSubmit={handleSubmit(submitFunction)}
           className="p-5 text-center "
         >
-          <h1 className="pb-5 text-3xl font-bold mb-2">
-            Registration
-          </h1>
+          <h1 className="pb-5 text-3xl font-bold mb-2">Registration</h1>
           <div className="flex flex-col items-center">
             <input
               {...register("text", { required: true })}
