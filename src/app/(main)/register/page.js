@@ -44,6 +44,7 @@ const RegistrationPage = () => {
           uid: credentialUser.user.uid,
           name: displayName,
           email: email,
+          photo: url,
         }),
       });
       const result = await res.json();

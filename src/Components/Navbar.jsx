@@ -99,20 +99,18 @@ const Navbar = () => {
           {userProfile ? (
             <>
               <Link href={"/postjobs"}>
-                {" "}
-                <button className="btn bg-violet-700 hover:bg-cyan-900 mr-5 text-white">
+                <button className="btn bg-cyan-700 hover:bg-cyan-900 mr-5 text-white">
                   Post Jobs
                 </button>
-              </Link>{" "}
+              </Link>
             </>
           ) : (
             <>
               <Link href={"/login"}>
-                {" "}
                 <button className="btn bg-cyan-700 hover:bg-cyan-900 text-white">
                   Post Jobs
                 </button>
-              </Link>{" "}
+              </Link>
             </>
           )}
 
