@@ -4,11 +4,12 @@ import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import { Suspense, useEffect, useState } from "react";
 import swal from "sweetalert";
 import Loading from "../professional_info/loading";
+import { useRouter } from "next/navigation";
 
 const AccountSecurity = () => {
   const [axiosMagic] = useMagicAxiosBoss();
   const [isTrue, setTrue] = useState(true);
-
+  const router = useRouter();
   const submitToDataBase = () => {
     const getUserDetailsData = JSON.parse(localStorage.getItem("details"));
     console.log(getUserDetailsData);
@@ -30,8 +31,8 @@ const AccountSecurity = () => {
           icon: "error",
         });
       });
-
     localStorage.removeItem("details");
+    router.push("/")
   };
 
   return (

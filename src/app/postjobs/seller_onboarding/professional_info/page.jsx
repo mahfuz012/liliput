@@ -5,8 +5,10 @@ import { Suspense, useRef, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import Loading from "../professional_info/loading";
+import { useRouter } from "next/navigation";
 
 const ProfessionalInfo = () => {
+  const router = useRouter();
   const occupation_names = [
     "Digital Marketing",
     "Video Editor",
@@ -177,8 +179,6 @@ const ProfessionalInfo = () => {
     setwarning("");
   }
 
-  console.log(storeSkillValues);
-
   function professioanlSubmitInfo(e) {
     e.preventDefault();
 
@@ -217,7 +217,12 @@ const ProfessionalInfo = () => {
     };
 
     const getData = JSON.parse(localStorage.getItem("details"));
-
+    const updateData = {
+      personal_Information: getData,
+      professional_Data,
+    };
+    localStorage.setItem("details", JSON.stringify(updateData));
+    router.push("/postjobs/seller_onboarding/linked_account");
     console.log(getData);
   }
 

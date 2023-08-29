@@ -4,8 +4,10 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
 import { languages } from "@/data/languages";
-const personalInfo = () => {
-  function Personalinfo(e) {
+import { useRouter } from "next/navigation";
+const PersonalInfo = () => {
+  const router = useRouter();
+  const Personalinfo = (e) => {
     e.preventDefault();
     const full_Name = e.target.firstname.value;
     const last_Name = e.target.lastname.value;
@@ -22,7 +24,8 @@ const personalInfo = () => {
 
     localStorage.setItem("details", JSON.stringify(personal_Information));
     console.log(personal_Information);
-  }
+    router.push("/postjobs/seller_onboarding/professional_info");
+  };
 
   return (
     <>
@@ -144,13 +147,11 @@ const personalInfo = () => {
           </div>
 
           <div className=" flex justify-end my-16 ">
-            <Link href="/postjobs/seller_onboarding/professional_info">
-              <input
-                type="submit"
-                value="Continue"
-                className="btn mx-10  px-16 btn-success text-white"
-              ></input>
-            </Link>
+            <input
+              type="submit"
+              value="Continue"
+              className="btn mx-10  px-16 btn-success text-white"
+            ></input>
           </div>
         </form>
       </div>
@@ -158,4 +159,4 @@ const personalInfo = () => {
   );
 };
 
-export default personalInfo;
+export default PersonalInfo;
