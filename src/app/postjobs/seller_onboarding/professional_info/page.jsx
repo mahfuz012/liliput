@@ -1,7 +1,7 @@
 "use client";
 import Buttonline from "@/Components/Buttonline";
 
-import {Suspense, useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import Loading from "../professional_info/loading";
@@ -49,7 +49,7 @@ const ProfessionalInfo = () => {
       "Market Research Analyst",
       "Machine Learning Engineer",
     ],
-    "Photographer": [
+    Photographer: [
       "Photographer",
       "Portrait Photographer",
       "Event Photographer",
@@ -71,7 +71,7 @@ const ProfessionalInfo = () => {
       "Influencer",
       "Social Media Content Creator",
     ],
-    "Programmer": [
+    Programmer: [
       "Software Engineer",
       "Application Developer",
       "Game Developer",
@@ -94,11 +94,8 @@ const ProfessionalInfo = () => {
     "Data Analysis",
   ];
 
-
-
-
-// ==============================================================================
-// occupation functionality 
+  // ==============================================================================
+  // occupation functionality
 
   const from_date = [
     "2023",
@@ -226,286 +223,287 @@ const ProfessionalInfo = () => {
 
   return (
     <Suspense fallback={Loading}>
-    <>
-
-
-      <div>
-        <Buttonline gives0={true} gives1={true} />
-      </div>
-      <div>
-        <div className="border py-10 px-5 sm:w-10/12 container mx-auto bg-gray-100  text-center">
-          <p className="text-gray-600 font-semibold text-3xl ">
-            -- Professional Info --{" "}
-          </p>
-          <p className="text-gray-600 ">
-            This is your time to shine. Let potential buyers know what you do
-            best and how you gained your skills, certifications and experience..
-          </p>
+      <>
+        <div>
+          <Buttonline gives0={true} gives1={true} />
         </div>
-      </div>
-
-      <div className="formsubmit mt-20">
-        <form className="mb-20" onSubmit={professioanlSubmitInfo}>
-          <div className="flex justify-center ">
-            <div className="sm:w-3/12">
-              <p className="text-xl text-gray-700 flex ">
-                Your Occupation
-                <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-                <span className="text-gray-500 italic text-sm mx-2 mt-2">
-                  (Private)
-                </span>{" "}
-              </p>
-            </div>
-
-            <div className=" sm:w-8/12">
-              <div style={{ alignItems: "center" }} className="sm:flex">
-                <select
-                  name="occupationMajor"
-                  onChange={ocupationSelection}
-                  className="border border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
-                >
-                  {occupation_names.map((p, index) => (
-                    <option className="font-serif bg-sky-100" key={index}>
-                      {p}
-                    </option>
-                  ))}
-                </select>
-
-                <p className="mx-2">From</p>
-                <select
-                  name="occupationperiods1"
-                  onChange={datechangefiles}
-                  className="border border-gray-500 rounded-md p-2 mx-1"
-                >
-                  {from_date.map((p, index) => (
-                    <option key={index}>{p}</option>
-                  ))}
-                </select>
-
-                <p className="mx-2">To</p>
-
-                <select
-                  name="occupationperiods2"
-                  className="border border-gray-500 rounded-md p-2 mx-1"
-                >
-                  {datesValue.map((p, index) => (
-                    <option key={index}>{p}</option>
-                  ))}
-                </select>
-              </div>
-
-              <p className="text-gray-500 font-semibold my-5">
-                Choose
-                <span className="font-bold text-black"> two to five </span>
-                of your best skills in Business :{" "}
-              </p>
-
-              <div className="sm:grid grid-cols-3">
-                {ocupation_category.map((occupation, index) => (
-                  <p
-                    style={{ alignItems: "center" }}
-                    className="font-semibold text-gray-600 m-1 flex"
-                    key={index}
-                  >
-                    <input
-                      name="occupationSkills"
-                      id={`checkbox-${index}`}
-                      className="mx-1"
-                      onChange={() => checkvalue(index)}
-                      type="checkbox"
-                      value={occupation.name}
-                      checked={occupation.checked}
-                    />
-                    {occupation.name}
-                  </p>
-                ))}
-              </div>
-            </div>
+        <div>
+          <div className="border py-10 px-5 sm:w-10/12 container mx-auto bg-gray-100  text-center">
+            <p className="text-gray-600 font-semibold text-3xl ">
+              -- Professional Info --{" "}
+            </p>
+            <p className="text-gray-600 ">
+              This is your time to shine. Let potential buyers know what you do
+              best and how you gained your skills, certifications and
+              experience..
+            </p>
           </div>
+        </div>
 
-          {/* ---------------------------------------------------------------------- */}
+        <div className="formsubmit mt-20">
+          <form className="mb-20" onSubmit={professioanlSubmitInfo}>
+            <div className="flex justify-center ">
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Your Occupation
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                  <span className="text-gray-500 italic text-sm mx-2 mt-2">
+                    (Private)
+                  </span>{" "}
+                </p>
+              </div>
 
-          <div className="flex justify-center my-20 ">
-            <div className="sm:w-3/12">
-              <p className="text-xl text-gray-700 flex ">
-                Skills
-                <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              </p>
-            </div>
+              <div className=" sm:w-8/12">
+                <div style={{ alignItems: "center" }} className="sm:flex">
+                  <select
+                    name="occupationMajor"
+                    onChange={ocupationSelection}
+                    className="border border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+                  >
+                    {occupation_names.map((p, index) => (
+                      <option className="font-serif bg-sky-100" key={index}>
+                        {p}
+                      </option>
+                    ))}
+                  </select>
 
-            <div className=" sm:w-8/12">
-              <div className="border bg-gray-100 p-3 rounded-2xl">
-                <p className="text-center font-bold text-red-600">{warings}</p>
+                  <p className="mx-2">From</p>
+                  <select
+                    name="occupationperiods1"
+                    onChange={datechangefiles}
+                    className="border border-gray-500 rounded-md p-2 mx-1"
+                  >
+                    {from_date.map((p, index) => (
+                      <option key={index}>{p}</option>
+                    ))}
+                  </select>
 
-                <select
-                  ref={categorySkill}
-                  className="border sm:w-6/12 border-gray-500 rounded-md p-2 mx-1"
-                >
-                  {freelancerSkills?.map((p, index) => (
-                    <option className="bg-blue-100" key={index}>
-                      {p}
-                    </option>
+                  <p className="mx-2">To</p>
+
+                  <select
+                    name="occupationperiods2"
+                    className="border border-gray-500 rounded-md p-2 mx-1"
+                  >
+                    {datesValue.map((p, index) => (
+                      <option key={index}>{p}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <p className="text-gray-500 font-semibold my-5">
+                  Choose
+                  <span className="font-bold text-black"> two to five </span>
+                  of your best skills in Business :{" "}
+                </p>
+
+                <div className="sm:grid grid-cols-3">
+                  {ocupation_category.map((occupation, index) => (
+                    <p
+                      style={{ alignItems: "center" }}
+                      className="font-semibold text-gray-600 m-1 flex"
+                      key={index}
+                    >
+                      <input
+                        name="occupationSkills"
+                        id={`checkbox-${index}`}
+                        className="mx-1"
+                        onChange={() => checkvalue(index)}
+                        type="checkbox"
+                        value={occupation.name}
+                        checked={occupation.checked}
+                      />
+                      {occupation.name}
+                    </p>
                   ))}
-                </select>
-
-                <select
-                  ref={levelValue}
-                  className="border sm:w-3/12 border-gray-500 rounded-md p-2 mx-1"
-                >
-                  <option className="bg-blue-100" value={"Beginner"}>
-                    Beginner
-                  </option>
-                  <option className="bg-blue-100" value={"Intermediate"}>
-                    Intermediate
-                  </option>
-                  <option className="bg-blue-100" value={"Expert"}>
-                    Expert
-                  </option>
-                </select>
-
-                <button
-                  disabled={buttondisble}
-                  onClick={skillSelection}
-                  className="btn sm:w-2/12  bg-lime-600  text-white mx-2"
-                >
-                  Add
-                </button>
-
-                <div className="overflow-x-auto">
-                  <table className="table">
-                    {/* head */}
-                    <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Skill</th>
-                        <th>Level</th>
-                        <th>Remove</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {storeSkillValues?.map((p, index) => (
-                        <>
-                          <tr>
-                            <th>{index + 1}</th>
-                            <th>{p.Skills}</th>
-                            <th>{p.Level}</th>
-                            <th>
-                              <RiDeleteBin5Fill
-                                onClick={() => deleteSkill(p.Skills)}
-                                className="text-3xl text-red-700"
-                              />
-                            </th>
-                          </tr>
-                        </>
-                      ))}
-                    </tbody>
-                  </table>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* -------------------------------------------------------- */}
+            {/* ---------------------------------------------------------------------- */}
 
-          <div className="flex justify-center my-16 ">
-            <div className="sm:w-3/12">
-              <p className="text-xl text-gray-700 flex ">
-                Education
-                <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              </p>
+            <div className="flex justify-center my-20 ">
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Skills
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className=" sm:w-8/12">
+                <div className="border bg-gray-100 p-3 rounded-2xl">
+                  <p className="text-center font-bold text-red-600">
+                    {warings}
+                  </p>
+
+                  <select
+                    ref={categorySkill}
+                    className="border sm:w-6/12 border-gray-500 rounded-md p-2 mx-1"
+                  >
+                    {freelancerSkills?.map((p, index) => (
+                      <option className="bg-blue-100" key={index}>
+                        {p}
+                      </option>
+                    ))}
+                  </select>
+
+                  <select
+                    ref={levelValue}
+                    className="border sm:w-3/12 border-gray-500 rounded-md p-2 mx-1"
+                  >
+                    <option className="bg-blue-100" value={"Beginner"}>
+                      Beginner
+                    </option>
+                    <option className="bg-blue-100" value={"Intermediate"}>
+                      Intermediate
+                    </option>
+                    <option className="bg-blue-100" value={"Expert"}>
+                      Expert
+                    </option>
+                  </select>
+
+                  <button
+                    disabled={buttondisble}
+                    onClick={skillSelection}
+                    className="btn sm:w-2/12  bg-lime-600  text-white mx-2"
+                  >
+                    Add
+                  </button>
+
+                  <div className="overflow-x-auto">
+                    <table className="table">
+                      {/* head */}
+                      <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Skill</th>
+                          <th>Level</th>
+                          <th>Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {storeSkillValues?.map((p, index) => (
+                          <>
+                            <tr>
+                              <th>{index + 1}</th>
+                              <th>{p.Skills}</th>
+                              <th>{p.Level}</th>
+                              <th>
+                                <RiDeleteBin5Fill
+                                  onClick={() => deleteSkill(p.Skills)}
+                                  className="text-3xl text-red-700"
+                                />
+                              </th>
+                            </tr>
+                          </>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className=" sm:w-8/12">
+            {/* -------------------------------------------------------- */}
+
+            <div className="flex justify-center my-16 ">
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Education
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className=" sm:w-8/12">
+                <input
+                  name="UniversityName"
+                  placeholder="Your University Name..."
+                  type="text"
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
+                />
+                <input
+                  name="SubjectName"
+                  placeholder="Your Major Subject..."
+                  type="text"
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
+                />
+
+                <select
+                  name="year"
+                  className="border text-center border-gray-500 rounded-md p-2 mx-1 sm:w-2/12"
+                >
+                  <option> Year</option>
+                  <option value={"1st year"}>1st year </option>
+                  <option value={"2nd year"}>2nd year</option>
+                  <option value={"3rd year"}>3rd year </option>
+                  <option value={"4th year"}>4th year</option>
+                  <option value={"Others"}> Others</option>
+                </select>
+              </div>
+            </div>
+
+            {/* ---------------------------------------------------------------- */}
+
+            <div className="flex justify-center my-16 ">
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Certification
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className=" sm:w-8/12">
+                <input
+                  name="CertificationReward"
+                  placeholder="Certificate Reward"
+                  type="text"
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-3/12"
+                />
+
+                <input
+                  name="CertificateLink"
+                  placeholder="Provide Your Link "
+                  type="url"
+                  className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
+                />
+
+                <p className="my-2 text-gray-500 ms-2">
+                  Kindly provide me with the link to your uploaded image (using
+                  platforms like imgbb or others)
+                </p>
+              </div>
+            </div>
+
+            {/* ----------------------------------------------------------- */}
+
+            <div className="flex justify-center my-16 ">
+              <div className="sm:w-3/12">
+                <p className="text-xl text-gray-700 flex ">
+                  Spend time
+                  <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
+                </p>
+              </div>
+
+              <div className=" sm:w-8/12">
+                <input
+                  name="spendTime"
+                  type="number"
+                  className="border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border"
+                  min="0"
+                />
+                <span className="mx-2 text-md">Hours</span>
+              </div>
+            </div>
+
+            <div className="sm:flex justify-end">
               <input
-                name="UniversityName"
-                placeholder="Your University Name..."
-                type="text"
-                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-4/12"
-              />
-              <input
-                name="SubjectName"
-                placeholder="Your Major Subject..."
-                type="text"
-                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
-              />
-
-              <select
-                name="year"
-                className="border text-center border-gray-500 rounded-md p-2 mx-1 sm:w-2/12"
-              >
-                <option> Year</option>
-                <option value={"1st year"}>1st year </option>
-                <option value={"2nd year"}>2nd year</option>
-                <option value={"3rd year"}>3rd year </option>
-                <option value={"4th year"}>4th year</option>
-                <option value={"Others"}> Others</option>
-              </select>
+                type="submit"
+                value="Continue"
+                className="sm:w-2/12 mx-10 text-white btn btn-success"
+              ></input>
             </div>
-          </div>
-
-          {/* ---------------------------------------------------------------- */}
-
-          <div className="flex justify-center my-16 ">
-            <div className="sm:w-3/12">
-              <p className="text-xl text-gray-700 flex ">
-                Certification
-                <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              </p>
-            </div>
-
-            <div className=" sm:w-8/12">
-              <input
-                name="CertificationReward"
-                placeholder="Certificate Reward"
-                type="text"
-                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-3/12"
-              />
-
-              <input
-                name="CertificateLink"
-                placeholder="Provide Your Link "
-                type="url"
-                className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
-              />
-
-              <p className="my-2 text-gray-500 ms-2">
-                Kindly provide me with the link to your uploaded image (using
-                platforms like imgbb or others)
-              </p>
-            </div>
-          </div>
-
-          {/* ----------------------------------------------------------- */}
-
-          <div className="flex justify-center my-16 ">
-            <div className="sm:w-3/12">
-              <p className="text-xl text-gray-700 flex ">
-                Spend time
-                <FaStarOfLife className="text-red-600 text-[0.5rem] mt-1" />
-              </p>
-            </div>
-
-            <div className=" sm:w-8/12">
-              <input
-                name="spendTime"
-                type="number"
-                className="border-gray-500 rounded-md sm:w-2/12 px-5 py-2 border"
-                min="0"
-              />
-              <span className="mx-2 text-md">Hours</span>
-            </div>
-          </div>
-
-          <div className="sm:flex justify-end">
-            <input
-              type="submit"
-              value="Continue"
-              className="sm:w-2/12 mx-10 text-white btn btn-success"
-            ></input>
-          </div>
-        </form>
-      </div>
-    </>
+          </form>
+        </div>
+      </>
     </Suspense>
   );
 };
