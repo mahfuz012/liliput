@@ -92,4 +92,4 @@ const LinkedAccount = () => {
   );
 };
 
-export default linkedAccount;
+export default LinkedAccount;
