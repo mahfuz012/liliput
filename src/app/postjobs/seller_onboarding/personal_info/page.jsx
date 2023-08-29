@@ -5,8 +5,6 @@ import React, { useEffect, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
 import { languages } from "@/data/languages";
 const personalInfo = () => {
-  
-
   function Personalinfo(e) {
     e.preventDefault();
     const full_Name = e.target.firstname.value;
