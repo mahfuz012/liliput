@@ -18,12 +18,12 @@ const SolutionsPage = () => {
           exactly how you want to work online.
         </h1>
       </div>
-      <div className="text-center my-10">
+      <div className="text-center my-16">
         <h1 className=" text-3xl font-bold mt-12  m-4">Payment Terms</h1>
         <h1 className=" border-b-blue-600  w-12 border-2 my-4 mx-auto"></h1>
         <h1>Choose how and when payments will be made.</h1>
       </div>
-      <div className="grid mb-14 px-5 lg:px-10 grid-cols-1 md:grid-cols-2 gap-9 lg:gap-14">
+      <div className="grid my-10 px-5 lg:px-10 grid-cols-1 md:grid-cols-2 gap-9 lg:gap-14">
         <div className="card border-t-2 relative  border-[#2777C6] h-80 lg:h-72  pt-8 bg-[#FFFFFF] rounded-none card-compact shadow-xl">
           <div className="px-4">
             <div className="my-2">
@@ -108,20 +108,14 @@ const SolutionsPage = () => {
         <h1 className=" border-b-blue-600  w-12 border-2  my-4  mx-auto"></h1>
         <h1>Define the deliverables for the job, including:</h1>
         <div className="text-left mx-auto grid grid-cols-2 lg:grid-cols-5 justify-center p-5 gap-8 mt-6">
-          <h1 className="text-lg font-bold ">
-            {" "}
-            &#9989; Understanding of the job
+          <h1 className="text-lg font-bold ">&#9989; Understanding of the job
           </h1>
-          <h1 className="text-lg font-bold"> &#9989; Your solution</h1>
+          <h1 className="text-lg font-bold">&#9989; Your solution</h1>
           <h1 className="text-lg font-bold">
-            {" "}
             &#9989; Relevant files and tools
           </h1>
-          <h1 className="text-lg font-bold"> &#9989; Specific deliverables</h1>
-          <h1 className="text-lg font-bold">
-            {" "}
-            &#9989; Timeframe and deadlines
-          </h1>
+          <h1 className="text-lg font-bold">&#9989; Specific deliverables</h1>
+          <h1 className="text-lg font-bold">&#9989; Timeframe and deadlines</h1>
         </div>
       </div>
     </div>
