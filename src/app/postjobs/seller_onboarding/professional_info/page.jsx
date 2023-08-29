@@ -1,9 +1,10 @@
 "use client";
 import Buttonline from "@/Components/Buttonline";
 
-import { useRef, useState } from "react";
+import {Suspense, useRef, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import Loading from "../professional_info/loading";
 
 const ProfessionalInfo = () => {
   const occupation_names = [
@@ -92,6 +93,12 @@ const ProfessionalInfo = () => {
     "Translation",
     "Data Analysis",
   ];
+
+
+
+
+// ==============================================================================
+// occupation functionality 
 
   const from_date = [
     "2023",
@@ -218,7 +225,10 @@ const ProfessionalInfo = () => {
   }
 
   return (
+    <Suspense fallback={Loading}>
     <>
+
+
       <div>
         <Buttonline gives0={true} gives1={true} />
       </div>
@@ -290,7 +300,7 @@ const ProfessionalInfo = () => {
                 of your best skills in Business :{" "}
               </p>
 
-              <div className="grid grid-cols-3">
+              <div className="sm:grid grid-cols-3">
                 {ocupation_category.map((occupation, index) => (
                   <p
                     style={{ alignItems: "center" }}
@@ -496,6 +506,7 @@ const ProfessionalInfo = () => {
         </form>
       </div>
     </>
+    </Suspense>
   );
 };
 

@@ -4,9 +4,21 @@ import { useContext } from "react";
 import logo from "../assets/icon.png";
 import Link from "next/link";
 import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
+import { useRouter } from "next/navigation";
+
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
+  const navigationbar = useRouter()
+
+function logoutFiles(){
+  logoutProfile()
+  navigationbar.push('/')
+}
+
+
+
+
 
   return (
     <>
@@ -151,7 +163,7 @@ const Navbar = () => {
                     </li>
                     <li className="">
                       <button
-                        onClick={logoutProfile}
+                        onClick={logoutFiles}
                         className="btn bg-red-500  content-center text-white"
                       >
                         Logout
