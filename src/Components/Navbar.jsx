@@ -6,19 +6,14 @@ import Link from "next/link";
 import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
 
-
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
-  const navigationbar = useRouter()
+  const navigationbar = useRouter();
 
-function logoutFiles(){
-  logoutProfile()
-  navigationbar.push('/')
-}
-
-
-
-
+  function logoutFiles() {
+    logoutProfile();
+    navigationbar.push("/");
+  }
 
   return (
     <>
@@ -100,9 +95,31 @@ function logoutFiles(){
                 <li className="border-r-2 border-black">
                   <Link href="/about">About</Link>
                 </li>
-                <li className="border-r-2 border-black">
-                  <Link href="/solutions">Solutions</Link>
-                </li>
+                <div className="dropdown dropdown-hover">
+                  <li className="border-r-2 border-black">
+                    <p tabIndex={0}>Solutions</p>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content mt-9 p-2 bg-base-100 w-56"
+                    >
+                      <li>
+                        <Link href="/solutions/agency" className="hover:text-blue-700">Agency</Link>
+                      </li>
+                      <li>
+                        <Link href="/solutions/enterprise" className="hover:text-blue-700">Enterprise</Link>
+                      </li>
+                      <li>
+                        <Link href="/solutions/purchase_order" className="hover:text-blue-700">Purchase Order</Link>
+                      </li>
+                      <li>
+                        <Link href="/solutions/agreements" className="hover:text-blue-700">Agreements</Link>
+                      </li>
+                      <li>
+                        <Link href="/solutions/safePay" className="hover:text-blue-700">SafePay</Link>
+                      </li>
+                    </ul>
+                  </li>
+                </div>
               </ul>
             </div>
           </div>
