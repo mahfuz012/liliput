@@ -26,7 +26,7 @@ const AllSkillsPage = () => {
         </h1>
         <h1 className="border-b-blue-600 w-20 border-2 my-4 mx-auto"></h1>
       </div>
-      <div className="grid px-10 gap-16 grid-cols-1 lg:grid-cols-3">
+      <div className="grid px-5 lg:px-20 gap-5 grid-cols-1 lg:grid-cols-3">
         {skills.map((skill) => (
           <SkillCard key={skill.id} skill={skill} />
         ))}

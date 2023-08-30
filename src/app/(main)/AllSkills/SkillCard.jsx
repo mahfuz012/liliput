@@ -5,11 +5,16 @@ const SkillCard = ({ skill }) => {
   return (
     <div>
       <div className="py-10 text-center border-gray-100 border-2 shadow-md">
-        <h1 className="text-xl font-semibold pb-2">{category}</h1>
+        <h1 className="text-xl hover:text-blue-700 hover:underline cursor-pointer font-semibold pb-2">
+          {category}
+        </h1>
         <p>{total}</p>
-        <div className="mt-10 pl-5 space-y-3 text-start">
+        <div className="mt-10 pl-7 space-y-4 text-start">
           {skills.map((skill, index) => (
-            <p className="hover:text-blue-700 cursor-pointer" key={index}>
+            <p
+              className="text-gray-600 hover:text-blue-700 hover:underline cursor-pointer w-fit"
+              key={index}
+            >
               {skill}
             </p>
           ))}
