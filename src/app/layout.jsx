@@ -14,13 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <AuthProviderPro>
-      
-       <div className="outlineSpace">
-       {children}
-       </div>
-
+          <div className="outlineSpace">{children}</div>
         </AuthProviderPro>
-      
       </body>
     </html>
   );

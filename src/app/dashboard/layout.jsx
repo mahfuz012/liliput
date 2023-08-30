@@ -2,24 +2,25 @@ import Image from "next/image";
 import logo from "@/assets/icon.png";
 import React from "react";
 import Link from "next/link";
+import { FaBars } from "react-icons/fa";
 
 const DashboardLayout = ({ children }) => {
   // TO DO
-  const isAdmin = false;
+  const isAdmin = true;
   const isSeller = false;
 
   return (
     <>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center">
+        <div className="drawer-content flex flex-col">
           {/* Page content here */}
           <div className="my-5">{children}</div>
           <label
             htmlFor="my-drawer-2"
-            className="btn bg-blue-700 text-white drawer-button lg:hidden"
+            className="btn w-14 bg-base-200 text-black drawer-button lg:hidden"
           >
-            Menu
+            <FaBars />
           </label>
         </div>
         <div className="drawer-side">
@@ -32,23 +33,26 @@ const DashboardLayout = ({ children }) => {
                 <h1 className="text-3xl text-slate-50 font-bold">Free Flow</h1>
               </div>
             </Link>
-            <li>
-              <a>Overview</a>
-            </li>
             {isAdmin ? (
               <>
                 <li>
-                  <a>Manage Users</a>
+                  <Link href="/dashboard/admin/overview">Overview</Link>
                 </li>
                 <li>
-                  <a>Manage Jobs</a>
+                  <Link href="/dashboard/admin/manageUsers">Manage Users</Link>
                 </li>
                 <li>
-                  <a>Manage Gigs</a>
+                  <Link href="/dashboard/admin/manageJobs">Manage Jobs</Link>
+                </li>
+                <li>
+                  <Link href="/dashboard/admin/manageGigs">Manage Gigs</Link>
                 </li>
               </>
             ) : isSeller ? (
               <>
+                <li>
+                  <a>Overview</a>
+                </li>
                 <li>
                   <a>My Gigs</a>
                 </li>
@@ -61,6 +65,9 @@ const DashboardLayout = ({ children }) => {
               </>
             ) : (
               <>
+                <li>
+                  <a>Overview</a>
+                </li>
                 <li>
                   <a>My Jobs</a>
                 </li>

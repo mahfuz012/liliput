@@ -1,30 +1,15 @@
-import Footer from '@/Components/Footer';
-import Navbar from '@/Components/Navbar';
-import React from 'react';
+import Footer from "@/Components/Footer";
+import Navbar from "@/Components/Navbar";
+import React from "react";
 
-
-const layout = ({children}) => {
-
-
-
-    return (
-
-
-        <>
-            
-<Navbar />
-
-<div className="outlineSpace">
-
-       {children}
-       </div>
-
-<Footer />
-
-
-
-        </>
-    );
+const layout = ({ children }) => {
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  );
 };
 
 export default layout;
