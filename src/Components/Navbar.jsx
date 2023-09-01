@@ -1,19 +1,39 @@
 "use client";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../assets/icon.png";
 import Link from "next/link";
 import { AuthContextPro } from "./AuthProviderFiles/AuthProviderPro";
 import { useRouter } from "next/navigation";
+import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
-  const navigationbar = useRouter();
+  const navigationbar = useRouter()
 
-  function logoutFiles() {
-    logoutProfile();
-    navigationbar.push("/");
-  }
+
+    const[axiosMagic] = useMagicAxiosBoss()
+    const [profileAvaible,setCheckProfileAvaible] = useState([])
+   useEffect(()=>{
+
+    axiosMagic.get("/userdataquery?email=mahfuzrn012@gmail.com")
+    .then(res=>setCheckProfileAvaible(res.data))
+
+   },[])
+
+console.log(profileAvaible);
+
+
+
+
+
+function logoutFiles(){
+  logoutProfile()
+  navigationbar.push('/')
+}
+
+
+
 
   return (
     <>
@@ -127,11 +147,15 @@ const Navbar = () => {
         <div className="navbar-end">
           {userProfile ? (
             <>
-              <Link href={"/postjobs"}>
+         
+              <Link href={profileAvaible?"http://localhost:3000/manage_gigs/overviews":"/postjobs"}>
                 <button className="btn bg-cyan-700 hover:bg-cyan-900 mr-5 text-white">
                   Post Jobs
                 </button>
               </Link>
+
+
+
             </>
           ) : (
             <>

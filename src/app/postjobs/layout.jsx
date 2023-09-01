@@ -6,7 +6,11 @@ const layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children}
+      <div  className="outlineSpace">
+
+         {children}
+         </div>
+
       <Footer />
     </>
   );

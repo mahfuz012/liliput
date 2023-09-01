@@ -14,3 +14,28 @@
     height: 20px;
      accent-color: rgb(152, 22, 240);
   }
+
+
+
+  .react-tagsinput-tag{
+  color: black !important;
+  border: none !important;
+  box-shadow: 0px 0px 5px rgb(126, 225, 250);
+  font-size: large !important;
+  padding: 0.3rem !important;
+  background-color: rgb(126, 225, 250) !important;
+}
+  .react-tagsinput-input{
+  
+  font-size: large !important;
+
+}
+  .react-tagsinput-input::placeholder{
+  
+  font-size: medium !important;
+  width: 10rem !important;
+color: green !important;
+
+}
+
+

@@ -1,7 +1,7 @@
 "use client";
 import Buttonline from "@/Components/Buttonline";
 import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import swal from "sweetalert";
 import Loading from "../professional_info/loading";
 import { useRouter } from "next/navigation";
