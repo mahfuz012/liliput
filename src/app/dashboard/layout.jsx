@@ -39,13 +39,28 @@ const DashboardLayout = ({ children }) => {
                   <Link href="/dashboard/admin/overview">Overview</Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin/manageUsers">Manage Users</Link>
+                  <Link href="/dashboard/admin/manageUsers">
+                    Users Analytics
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/admin/manageJobs">Manage Jobs</Link>
+                  <Link href="/dashboard/admin/manageJobs">All Jobs</Link>
                 </li>
                 <li>
                   <Link href="/dashboard/admin/manageGigs">Manage Gigs</Link>
+                </li>
+                <li>
+                  <Link href="/dashboard/admin/allFreelancers">
+                    Freelancers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dashboard/admin/analysePayments">
+                    Analyse Payments
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dashboard/admin">Feedback & Review</Link>
                 </li>
               </>
             ) : isSeller ? (
@@ -61,6 +76,9 @@ const DashboardLayout = ({ children }) => {
                 </li>
                 <li>
                   <a>Invoices</a>
+                </li>
+                <li>
+                  <a>Profile</a>
                 </li>
               </>
             ) : (
@@ -79,9 +97,6 @@ const DashboardLayout = ({ children }) => {
                 </li>
               </>
             )}
-            <li>
-              <a>My Profile</a>
-            </li>
           </ul>
         </div>
       </div>

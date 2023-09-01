@@ -22,7 +22,7 @@ const ManageUsersPage = () => {
 
   return (
     <>
-      <div className="overflow-auto w-1/2 px-10 ml-5 py-10">
+      <div className="overflow-x-auto max-h-screen bg-base-100 px-5 ml-5 py-5">
         <h1 className="text-center py-4 text-xl font-bold">Manage Users</h1>
         <table className="table w-full">
           {/* head */}

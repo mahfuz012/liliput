@@ -6,7 +6,7 @@ export const metadata = {
   title: "Solutions | Free Flow",
 };
 
-const SolutionsPage = () => {
+const AgreementsPage = () => {
   return (
     <div className="">
       <div className="bg-gradient-to-t from-cyan-200 to-cyan-50 text-center py-16">
@@ -122,4 +122,4 @@ const SolutionsPage = () => {
   );
 };
 
-export default SolutionsPage;
+export default AgreementsPage;
