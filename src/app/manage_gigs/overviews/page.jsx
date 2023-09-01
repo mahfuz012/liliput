@@ -25,7 +25,7 @@ if(newTags.length <=6){
 
 
 
-const [categories,setcategories] = useState( [
+const categories=  [
     {
       "name": "Graphic Design",
       "subcategories": ["Logo Design", "Illustration", "Print Design", "Web Design", "Packaging Design"]
@@ -58,7 +58,7 @@ const [categories,setcategories] = useState( [
       "name": "Lifestyle Photography",
       "subcategories": ["Portrait Photography", "Event Photography", "Fashion Photography"]
     }
-  ])
+  ]
 
 const [subcategoriesFiles,setSubcategories] = useState(["Logo Design", "Illustration", "Print Design", "Web Design", "Packaging Design"])
 function seleteSubcategories (e){
