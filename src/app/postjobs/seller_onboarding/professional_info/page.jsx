@@ -2,22 +2,18 @@
 import Buttonline from '@/Components/Buttonline';
 import { useRouter } from 'next/navigation';
 
-import { Suspense, useRef, useState } from 'react';
+import { Suspense, useContext, useRef, useState } from 'react';
 import { FaStarOfLife } from 'react-icons/fa';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import Loading from './loading';
+import { AuthContextPro } from '@/Components/AuthProviderFiles/AuthProviderPro';
 
 
 
 const professionalInfo = () => {
+  const { userProfile } = useContext(AuthContextPro);
 
-
-
-
-
-
-
-
+console.log(userProfile.email);
 
 
   const navigationbar = useRouter()
@@ -262,7 +258,7 @@ const professional_Data = {occupation,Skills,Education,Certificate,spend_Time}
 
 const getData = JSON.parse(localStorage.getItem("details"));
 getData.professional = professional_Data
-
+getData.email=userProfile.email
 localStorage.setItem("details", JSON.stringify(getData))
 console.log(getData);
 navigationbar.push("/postjobs/seller_onboarding/linked_account")

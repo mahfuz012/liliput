@@ -63,17 +63,17 @@ const navigationbar = useRouter()
         }).then(res=>res.json())
         .then(getdata=>{
             const profile_image= getdata.data.display_url
-            const  email_address = userProfile?.email
+    
             const full_Name = e.target.firstname.value;
             const phone_Number = e.target.phone.value;
             const last_Name = e.target.lastname.value;
             const Display_Name = e.target.displayname.value;
             const Language = e.target.option.value;
             const Description = e.target.description.value
-            const personal_Information = {email_address,profile_image,phone_Number, full_Name, last_Name, Display_Name, Description, Language }
+            const personal_Information = {profile_image,phone_Number, full_Name, last_Name, Display_Name, Description, Language }
             const proinformation = {personal_Information} 
-    
-            localStorage.setItem("details", JSON.stringify(proinformation))
+    console.log(proinformation);
+         localStorage.setItem("details", JSON.stringify(proinformation))
             console.log(proinformation);
             navigationbar.push("/postjobs/seller_onboarding/professional_info")   
 

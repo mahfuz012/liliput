@@ -27,7 +27,7 @@ const Buttonline = ({ gives1, gives2, gives3, gives0 }) => {
 
   return (
     <>
-      <div className="flex mt-6 justify-center border p-3">
+      <div className="sm:flex mt-6 justify-center border p-3">
         <Link href={"/postjobs/seller_onboarding/personal_info"}>
           {" "}
           <button
