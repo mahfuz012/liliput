@@ -148,7 +148,7 @@ function logoutFiles(){
           {userProfile ? (
             <>
          
-              <Link href={profileAvaible?"http://localhost:3000/manage_gigs/overviews":"/postjobs"}>
+              <Link href={profileAvaible?"/manage_gigs/overviews":"/postjobs"}>
                 <button className="btn bg-cyan-700 hover:bg-cyan-900 mr-5 text-white">
                   Post Jobs
                 </button>
