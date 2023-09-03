@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -24,109 +23,117 @@ const GiglineTag = ({ gives1, gives2, gives3, gives0 }) => {
     setmatch1(matc2);
     setmatch2(matc3);
     setmatch3(matc4);
-  }, []);
+  }, [gives0, gives1, gives2, gives3]);
 
   return (
     <>
-    <div className="flex  justify-center border p-3">
-  <button
-    style={{ alignItems: "center" }}
-    className={`mx-2 font-semibold flex ${match && "text-success"} `}
-    onClick={() => history.push("/postjobs/seller_onboarding/personal_info")}
-  >
-    <PiNumberCircleOneFill
-      className={`text-3xl mx-2 ${
-        match ? "text-success" : "text-gray-500"
-      }  `}
-    />
-    Over-View
-    <BiRightArrow
-      className={`text-3xl mx-2 ${
-        match ? "text-success" : "text-gray-500"
-      } `}
-    />
-  </button>
+      <div className="flex  justify-center border p-3">
+        <button
+          style={{ alignItems: "center" }}
+          className={`mx-2 font-semibold flex ${match && "text-success"} `}
+          onClick={() =>
+            history.push("/postjobs/seller_onboarding/personal_info")
+          }
+        >
+          <PiNumberCircleOneFill
+            className={`text-3xl mx-2 ${
+              match ? "text-success" : "text-gray-500"
+            }  `}
+          />
+          Over-View
+          <BiRightArrow
+            className={`text-3xl mx-2 ${
+              match ? "text-success" : "text-gray-500"
+            } `}
+          />
+        </button>
 
-  <button
-    style={{ alignItems: "center" }}
-    className={`mx-2 font-semibold flex ${
-      match2 ? "text-success" : "text-gray-500"
-    }`}
-    onClick={() => history.push("/postjobs/seller_onboarding/professional_info")}
-  >
-    <PiNumberCircleTwoFill className="text-3xl mx-2" />
-    Price
-    <BiRightArrow
-      className={`text-2xl mx-1  ${
-        match2 ? "text-success" : "text-gray-500"
-      }`}
-    />
-  </button>
+        <button
+          style={{ alignItems: "center" }}
+          className={`mx-2 font-semibold flex ${
+            match2 ? "text-success" : "text-gray-500"
+          }`}
+          onClick={() =>
+            history.push("/postjobs/seller_onboarding/professional_info")
+          }
+        >
+          <PiNumberCircleTwoFill className="text-3xl mx-2" />
+          Price
+          <BiRightArrow
+            className={`text-2xl mx-1  ${
+              match2 ? "text-success" : "text-gray-500"
+            }`}
+          />
+        </button>
 
-  <button
-    style={{ alignItems: "center" }}
-    className={`mx-2 font-semibold flex ${
-      match3 ? "text-success" : "text-gray-500"
-    }`}
-    onClick={() => history.push("/postjobs/seller_onboarding/linked_account")}
-  >
-    <PiNumberCircleThreeFill
-      className={`text-3xl mx-2 ${
-        match3 ? "text-success" : "text-gray-500"
-      }  `}
-    />
-    Description
-    <BiRightArrow
-      className={`text-2xl mx-1  ${
-        match3 ? "text-success" : "text-gray-500"
-      }`}
-    />
-  </button>
+        <button
+          style={{ alignItems: "center" }}
+          className={`mx-2 font-semibold flex ${
+            match3 ? "text-success" : "text-gray-500"
+          }`}
+          onClick={() =>
+            history.push("/postjobs/seller_onboarding/linked_account")
+          }
+        >
+          <PiNumberCircleThreeFill
+            className={`text-3xl mx-2 ${
+              match3 ? "text-success" : "text-gray-500"
+            }  `}
+          />
+          Description
+          <BiRightArrow
+            className={`text-2xl mx-1  ${
+              match3 ? "text-success" : "text-gray-500"
+            }`}
+          />
+        </button>
 
-  <button
-    style={{ alignItems: "center" }}
-    className={`mx-2 font-semibold flex ${
-      match4 ? "text-success" : "text-gray-500"
-    }`}
-    onClick={() => history.push("/postjobs/seller_onboarding/account_security")}
-  >
-    <PiNumberCircleFourFill
-      className={`text-3xl mx-2 ${
-        match4 ? "text-success" : "text-gray-500"
-      }  `}
-    />
-    Gallary
-    <BiRightArrow
-      className={`text-2xl mx-1  ${
-        match4 ? "text-success" : "text-gray-500"
-      }`}
-    />
-  </button>
+        <button
+          style={{ alignItems: "center" }}
+          className={`mx-2 font-semibold flex ${
+            match4 ? "text-success" : "text-gray-500"
+          }`}
+          onClick={() =>
+            history.push("/postjobs/seller_onboarding/account_security")
+          }
+        >
+          <PiNumberCircleFourFill
+            className={`text-3xl mx-2 ${
+              match4 ? "text-success" : "text-gray-500"
+            }  `}
+          />
+          Gallary
+          <BiRightArrow
+            className={`text-2xl mx-1  ${
+              match4 ? "text-success" : "text-gray-500"
+            }`}
+          />
+        </button>
 
-  <button
-    style={{ alignItems: "center" }}
-    className={`mx-2 font-semibold flex ${
-      match4 ? "text-success" : "text-gray-500"
-    }`}
-    onClick={() => history.push("/postjobs/seller_onboarding/account_security")}
-  >
-    <PiNumberCircleFourFill
-      className={`text-3xl mx-2 ${
-        match4 ? "text-success" : "text-gray-500"
-      }  `}
-    />
-    Publish
-    <BiRightArrow
-      className={`text-2xl mx-1  ${
-        match4 ? "text-success" : "text-gray-500"
-      }`}
-    />
-  </button>
-</div>
-
+        <button
+          style={{ alignItems: "center" }}
+          className={`mx-2 font-semibold flex ${
+            match4 ? "text-success" : "text-gray-500"
+          }`}
+          onClick={() =>
+            history.push("/postjobs/seller_onboarding/account_security")
+          }
+        >
+          <PiNumberCircleFourFill
+            className={`text-3xl mx-2 ${
+              match4 ? "text-success" : "text-gray-500"
+            }  `}
+          />
+          Publish
+          <BiRightArrow
+            className={`text-2xl mx-1  ${
+              match4 ? "text-success" : "text-gray-500"
+            }`}
+          />
+        </button>
+      </div>
     </>
   );
 };
 
 export default GiglineTag;
-

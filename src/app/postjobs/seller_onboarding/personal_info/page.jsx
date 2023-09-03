@@ -123,54 +123,6 @@ const PersonalInfo = () => {
                 </p>
               </div>
 
-<<<<<<< HEAD
-
-        const formData = new FormData();
-        formData.append('image', selectedFile);
-    
-        await fetch(imageUrl,{
-            method:"POST",
-            body:formData
-        }).then(res=>res.json())
-        .then(getdata=>{
-            const profile_image= getdata.data.display_url
-    
-            const full_Name = e.target.firstname.value;
-            const phone_Number = e.target.phone.value;
-            const last_Name = e.target.lastname.value;
-            const Display_Name = e.target.displayname.value;
-            const Language = e.target.option.value;
-            const Description = e.target.description.value
-            const personal_Information = {profile_image,phone_Number, full_Name, last_Name, Display_Name, Description, Language }
-            const proinformation = {personal_Information} 
-    console.log(proinformation);
-         localStorage.setItem("details", JSON.stringify(proinformation))
-            console.log(proinformation);
-            navigationbar.push("/postjobs/seller_onboarding/professional_info")   
-
-
-
-        })
-
-
-
-
-
-
-
-      
-    }
-
-
-
-
-
-    return (
-        <Suspense fallback={Loading}>
-        <>
-            <div className=''>
-                <Buttonline gives0={true} />
-=======
               <div className="sm:flex sm:w-8/12">
                 <input
                   placeholder="type your first name"
@@ -185,7 +137,6 @@ const PersonalInfo = () => {
                   className="border  border-gray-500 rounded-md p-2 mx-1 sm:w-5/12"
                 />
               </div>
->>>>>>> 62304ae063c65d40ba54039b6aaf4ca9e94f7c92
             </div>
 
             {/* ---------------- */}

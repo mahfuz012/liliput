@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css";
 
-const Overview = () => {
-  const [tags, setTags] = useState([]);
-  const [warns, setWarning] = useState([]);
+
+
+const Overviews = () => {
+    const [tags, setTags] = useState([]);
+    const [warns, setWarning] = useState([]);
 
   const handleChange = (newTags) => {
     console.log(tags);
@@ -19,7 +21,10 @@ const Overview = () => {
     }
   };
 
-  const [categories, setcategories] = useState([
+
+
+
+const [categories,setcategories] = useState( [
     {
       name: "Graphic Design",
       subcategories: [
@@ -79,14 +84,10 @@ const Overview = () => {
       ],
     },
     {
-      name: "Lifestyle Photography",
-      subcategories: [
-        "Portrait Photography",
-        "Event Photography",
-        "Fashion Photography",
-      ],
-    },
-  ]);
+      "name": "Lifestyle Photography",
+      "subcategories": ["Portrait Photography", "Event Photography", "Fashion Photography"]
+    }
+  ])
 
   const [subcategoriesFiles, setSubcategories] = useState([
     "Logo Design",
@@ -195,4 +196,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default Overviews;

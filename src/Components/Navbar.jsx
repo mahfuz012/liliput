@@ -15,7 +15,7 @@ const Navbar = () => {
   const [profileAvaible, setCheckProfileAvaible] = useState([]);
   useEffect(() => {
     axiosMagic
-      .get("/userdataquery?email=mahfuzrn012@gmail.com")
+      .get(`/userdataquery?email=${userProfile?.email}`)
       .then((res) => setCheckProfileAvaible(res.data));
   }, []);
 
