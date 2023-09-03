@@ -1,10 +1,9 @@
 "use client";
-
 import { AuthContextPro } from "@/Components/AuthProviderFiles/AuthProviderPro";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { BiLogoFacebookCircle } from "react-icons/bi";
-import React, { startTransition, useContext, useRef } from "react";
+import React, { startTransition, useContext } from "react";
 import { useForm } from "react-hook-form";
 import swal from "sweetalert2";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -61,7 +60,7 @@ const LoginPage = () => {
     }
   };
 
-  const difref = useRef();
+  // const difref = useRef();
 
   // function resetsubmit() {
   //   resetpasswordsubmit(difref.current.value)

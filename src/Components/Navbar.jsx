@@ -14,12 +14,15 @@ const Navbar = () => {
 
     const[axiosMagic] = useMagicAxiosBoss()
     const [profileAvaible,setCheckProfileAvaible] = useState([])
+
+
+
    useEffect(()=>{
 
-    axiosMagic.get("/userdataquery?email=mahfuzrn012@gmail.com")
+    axiosMagic.get(`/userdataquery?email=${userProfile?.email}`)
     .then(res=>setCheckProfileAvaible(res.data))
 
-   },[])
+   },[axiosMagic, userProfile?.email])
 
 console.log(profileAvaible);
 

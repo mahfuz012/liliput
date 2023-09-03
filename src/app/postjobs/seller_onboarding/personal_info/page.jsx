@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import React, {
   Suspense,
   useContext,
-  useEffect,
-  useRef,
+  
   useState,
 } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
