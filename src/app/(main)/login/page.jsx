@@ -17,15 +17,15 @@ const LoginPage = () => {
   const from = search.get("redirectUrl") || "/";
   const { replace, refresh } = useRouter();
   const {
-    resetpasswordsubmit,
+ 
     loginProfile,
-    userProfile,
+   
     registerWithGoogle,
     registerWithFacebook,
   } = useContext(AuthContextPro);
 
   const {
-    reset,
+ 
     register,
     handleSubmit,
     formState: { errors },
@@ -62,11 +62,12 @@ const LoginPage = () => {
   };
 
   const difref = useRef();
-  function resetsubmit() {
-    resetpasswordsubmit(difref.current.value)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
-  }
+
+  // function resetsubmit() {
+  //   resetpasswordsubmit(difref.current.value)
+  //     .then((res) => console.log(res))
+  //     .catch((error) => console.log(error));
+  // }
 
   function faceboookdopen() {
     registerWithFacebook()
@@ -110,6 +111,7 @@ const LoginPage = () => {
         }
       });
   }
+
 
   return (
     <div className="my-10 container mx-auto">
