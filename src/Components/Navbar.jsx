@@ -9,31 +9,22 @@ import useMagicAxiosBoss from "./hooks/useMagicAxiosBoss";
 
 const Navbar = () => {
   const { userProfile, logoutProfile } = useContext(AuthContextPro);
-  const navigationbar = useRouter()
+  const navigationbar = useRouter();
 
+  const [axiosMagic] = useMagicAxiosBoss();
+  const [profileAvaible, setCheckProfileAvaible] = useState([]);
+  useEffect(() => {
+    axiosMagic
+      .get("/userdataquery?email=mahfuzrn012@gmail.com")
+      .then((res) => setCheckProfileAvaible(res.data));
+  }, []);
 
-    const[axiosMagic] = useMagicAxiosBoss()
-    const [profileAvaible,setCheckProfileAvaible] = useState([])
-   useEffect(()=>{
+  console.log(profileAvaible);
 
-    axiosMagic.get("/userdataquery?email=mahfuzrn012@gmail.com")
-    .then(res=>setCheckProfileAvaible(res.data))
-
-   },[])
-
-console.log(profileAvaible);
-
-
-
-
-
-function logoutFiles(){
-  logoutProfile()
-  navigationbar.push('/')
-}
-
-
-
+  function logoutFiles() {
+    logoutProfile();
+    navigationbar.push("/");
+  }
 
   return (
     <>
@@ -123,19 +114,44 @@ function logoutFiles(){
                       className="dropdown-content mt-9 p-2 bg-base-100 w-56"
                     >
                       <li>
-                        <Link href="/solutions/agency" className="hover:text-blue-700">Agency</Link>
+                        <Link
+                          href="/solutions/agency"
+                          className="hover:text-blue-700"
+                        >
+                          Agency
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/solutions/enterprise" className="hover:text-blue-700">Enterprise</Link>
+                        <Link
+                          href="/solutions/enterprise"
+                          className="hover:text-blue-700"
+                        >
+                          Enterprise
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/solutions/purchase_order" className="hover:text-blue-700">Purchase Order</Link>
+                        <Link
+                          href="/solutions/purchase_order"
+                          className="hover:text-blue-700"
+                        >
+                          Purchase Order
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/solutions/agreements" className="hover:text-blue-700">Agreements</Link>
+                        <Link
+                          href="/solutions/agreements"
+                          className="hover:text-blue-700"
+                        >
+                          Agreements
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/solutions/safePay" className="hover:text-blue-700">SafePay</Link>
+                        <Link
+                          href="/solutions/safePay"
+                          className="hover:text-blue-700"
+                        >
+                          SafePay
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -147,15 +163,17 @@ function logoutFiles(){
         <div className="navbar-end">
           {userProfile ? (
             <>
-         
-              <Link href={profileAvaible?"http://localhost:3000/manage_gigs/overviews":"/postjobs"}>
+              <Link
+                href={
+                  profileAvaible
+                    ? "http://localhost:3000/manage_gigs/overviews"
+                    : "/postjobs"
+                }
+              >
                 <button className="btn bg-cyan-700 hover:bg-cyan-900 mr-5 text-white">
                   Post Jobs
                 </button>
               </Link>
-
-
-
             </>
           ) : (
             <>
