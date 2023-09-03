@@ -84,7 +84,7 @@ const AuthProviderPro = ({ children }) => {
     return () => {
       return unheat();
     };
-  }, []);
+  }, [auth]);
 
   const passValue = {
     createRegister,
