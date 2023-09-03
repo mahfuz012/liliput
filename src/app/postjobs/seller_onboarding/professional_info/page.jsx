@@ -1,28 +1,6 @@
-<<<<<<< HEAD
-"use client"
-import Buttonline from '@/Components/Buttonline';
-import { useRouter } from 'next/navigation';
-
-import { Suspense, useContext, useRef, useState } from 'react';
-import { FaStarOfLife } from 'react-icons/fa';
-import { RiDeleteBin5Fill } from 'react-icons/ri';
-import Loading from './loading';
-import { AuthContextPro } from '@/Components/AuthProviderFiles/AuthProviderPro';
-
-
-
-const professionalInfo = () => {
-  const { userProfile } = useContext(AuthContextPro);
-
-console.log(userProfile.email);
-
-
-  const navigationbar = useRouter()
-=======
 "use client";
 import Buttonline from "@/Components/Buttonline";
 import { useRouter } from "next/navigation";
->>>>>>> 62304ae063c65d40ba54039b6aaf4ca9e94f7c92
 
 import { Suspense, useRef, useState } from "react";
 import { FaStarOfLife } from "react-icons/fa";
@@ -229,73 +207,8 @@ const ProfessionalInfo = () => {
 
     // ----------------------------------------------------
 
-<<<<<<< HEAD
-    const deleteData = storeSkillValues.filter(p=>p.Skills !== props)
-
-    setSkillValues(deleteData)
-    setbutton(false)
-    setwarning("")
-}
-console.log(storeSkillValues);
-
-// ===============================================================================
-
-
-
-
-
-
-
-
-
-
-
-function professioanlSubmitInfo(e){
-
-
-  e.preventDefault()
-
-  const occupation_Major = e.target.occupationMajor.value;
-  const  From = e.target.occupationperiods1.value;
-  const  End = e.target.occupationperiods2.value;
-  const occupation_periods = {From,End}
-  const occupation_Categories =  skillvaluechecklist
-  const occupation = {occupation_Major,occupation_periods,occupation_Categories}
-
-// ----------------------------------------------------
-
-const Skills  = {storeSkillValues}
-// ----------------------------------------------
-
-
-const University_Name = e.target.UniversityName.value
-const Subject_Name =   e.target.SubjectName.value
-const Year = e.target.year.value
-const Education = {University_Name,Subject_Name,Year}
-
-// ------------------------------------------------------
-const spend_Time =  e.target.spendTime.value
-const Certification_Reward =  e.target.CertificationReward.value
-const Certificate_Link  = e.target.CertificateLink.value
-const Certificate = {Certification_Reward,Certificate_Link}
-
-
-const professional_Data = {occupation,Skills,Education,Certificate,spend_Time}
-
-// set to localstorage --------------------------------------
-
-const getData = JSON.parse(localStorage.getItem("details"));
-getData.professional = professional_Data
-getData.email=userProfile.email
-localStorage.setItem("details", JSON.stringify(getData))
-console.log(getData);
-navigationbar.push("/postjobs/seller_onboarding/linked_account")
-
-}
-=======
     const Skills = { storeSkillValues };
     // ----------------------------------------------
->>>>>>> 62304ae063c65d40ba54039b6aaf4ca9e94f7c92
 
     const University_Name = e.target.UniversityName.value;
     const Subject_Name = e.target.SubjectName.value;
@@ -326,6 +239,9 @@ navigationbar.push("/postjobs/seller_onboarding/linked_account")
     navigationbar.push("/postjobs/seller_onboarding/linked_account");
   }
 
+
+
+  
   return (
     <Suspense fallback={Loading}>
       <>

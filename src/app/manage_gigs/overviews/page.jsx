@@ -6,7 +6,7 @@ import 'react-tagsinput/react-tagsinput.css'
 
 
 
-const overview = () => {
+const Overviews = () => {
     const [tags, setTags] = useState([]);
     const [warns, setWarning] = useState([]);
 
@@ -190,4 +190,4 @@ setSubcategories(checkTheValues.subcategories);
     );
 };
 
-export default overview;
+export default Overviews;
