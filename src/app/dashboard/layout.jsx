@@ -1,16 +1,23 @@
+"use client";
 import Image from "next/image";
 import logo from "@/assets/icon.png";
 import React from "react";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const DashboardLayout = ({ children }) => {
+  const queryClient = new QueryClient({
+    defaultQueryObserverOptions: {
+      enabled: true,
+    },
+  });
   // TO DO
   const isAdmin = true;
   const isSeller = false;
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -100,7 +107,7 @@ const DashboardLayout = ({ children }) => {
           </ul>
         </div>
       </div>
-    </>
+    </QueryClientProvider>
   );
 };
 

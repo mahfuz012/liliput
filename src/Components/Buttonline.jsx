@@ -13,7 +13,6 @@ const Buttonline = ({ gives1, gives2, gives3, gives0 }) => {
   const [match3, setmatch2] = useState(false);
   const [match4, setmatch3] = useState(false);
 
-
   useEffect(() => {
     const matc1 = gives0;
     const matc2 = gives1;
@@ -24,7 +23,7 @@ const Buttonline = ({ gives1, gives2, gives3, gives0 }) => {
     setmatch1(matc2);
     setmatch2(matc3);
     setmatch3(matc4);
-  }, [gives0,gives1,gives2,gives3]);
+  }, [gives0, gives1, gives2, gives3]);
 
   return (
     <>

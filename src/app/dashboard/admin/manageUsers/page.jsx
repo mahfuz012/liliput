@@ -1,24 +1,59 @@
 "use client";
 import TitleSection from "@/Components/TitleSection";
+import useMagicAxiosBoss from "@/Components/hooks/useMagicAxiosBoss";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 
 const ManageUsersPage = () => {
-  const [users, setUsers] = useState([]);
+  const [axiosMagic] = useMagicAxiosBoss();
+  const { data: users = [], refetch } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axiosMagic.get("/users");
+      return res.data;
+    },
+  });
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/users");
-        const data = await res.json();
-        setUsers(data);
-      } catch (error) {
-        console.error("Error fetching users:", error);
+  const handleMakeAdmin = (user) => {
+    axiosMagic
+      .patch(`http://localhost:5000/users/admin/${user._id}`)
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire("Updated!", `${user.name} is an Admin Now`, "success");
+        }
+      });
+  };
+
+  const handleDelete = (user) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosMagic
+          .delete(`http://localhost:5000/users/${user._id}`)
+          .then((res) => {
+            const data = res.data;
+            console.log(data);
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "user has been deleted.", "success");
+            }
+          });
       }
-    };
-    fetchUsers();
-  }, []);
+    });
+  };
 
   return (
     <>
@@ -55,26 +90,20 @@ const ManageUsersPage = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button
-                    // onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-sm text-black bg-base-300 hover:bg-gray-300"
-                  >
-                    Make Admin
-                  </button>
-                  {/* {user.role === "admin" ? (
+                  {user.role === "admin" ? (
                     "admin"
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-md text-white bg-lime-700"
+                      className="btn btn-sm text-black bg-base-300 hover:bg-gray-300"
                     >
                       Make Admin
                     </button>
-                  )} */}
+                  )}
                 </td>
                 <td className="text-center">
                   <button
-                    // onClick={() => handleDelete(user)}
+                    onClick={() => handleDelete(user)}
                     className="btn btn-sm text-white bg-red-400"
                   >
                     <FaTrashAlt />
