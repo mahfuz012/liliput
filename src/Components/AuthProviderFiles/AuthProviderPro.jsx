@@ -12,6 +12,7 @@ import {
   signInWithPopup,
   sendEmailVerification,
 } from "firebase/auth";
+
 import app from "@/Firebase/Firebase.config";
 import axios from "axios";
 
@@ -58,9 +59,9 @@ const AuthProviderPro = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  const actionCodeSettings = {
-    handleCodeInApp: true,
-  };
+  // const actionCodeSettings = {
+  //   handleCodeInApp: true,
+  // };
 
   const emailVerifySubmit = () => {
     return sendEmailVerification(auth.currentUser);
