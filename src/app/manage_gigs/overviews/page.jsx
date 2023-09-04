@@ -111,11 +111,29 @@ const [categories,setcategories] = useState( [
   // setSuggestionValue(getdata)
   // }
 
+
+
+function OverViews (e){
+  console.log("mahfuzs");
+e.preventDefault()
+const gigs_title = e.target.gigs_title.value 
+console.log(gigs_title);
+}
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <GiglineTag />
 
-      <form className="px-10 sm:px-0  sm:w-9/12 mx-auto">
+      <form onSubmit={OverViews} className="px-10 sm:px-0 my-16  sm:w-9/12 mx-auto">
         {/* -----------------------------------------------------------       */}
         <div className="sm:flex justify-center my-5 ">
           <div className="sm:w-3/12 p-5">
@@ -132,9 +150,10 @@ const [categories,setcategories] = useState( [
 
           <div className=" sm:w-8/12 p-5">
             <textarea
+            name="gigs_title"
               placeholder="I Will Do something, I am really good at"
               style={{ height: "100px" }}
-              name="gig_title"
+           
               className="border  border-gray-400 text-2xl text-gray-600 rounded-md p-2 mx-1 w-full "
             ></textarea>
           </div>
@@ -191,6 +210,11 @@ const [categories,setcategories] = useState( [
             />
           </div>
         </div>
+
+      <div className="sm:flex justify-end my-10">
+      <input type="submit" value={"Continue"} className="btn btn-success text-white w-3/12" />
+      </div>
+
       </form>
     </>
   );
